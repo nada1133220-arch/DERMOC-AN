@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DERMOCÉAN - Pure Nature Proven Results | العناية الطبيعية الاحترافية بالبشرة</title>
+    <meta name="description" content="DERMOCÉAN - منتجات العناية بالبشرة الطبيعية الاحترافية. Pure Nature Proven Results.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-rose: #d4a5a5;
+            --secondary-lavender: #c8b8d8;
+            --soft-pink: #e8d8e8;
+            --cream: #f8f5f2;
+            --dark-text: #3a3a3a;
+            --medium-text: #666;
+            --light-text: #999;
+            --border: #e5d5d5;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--cream);
+            border-bottom: 1px solid var(--border);
+            padding: 0.7rem 0;
+        }
+
+        .top-bar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .brand-info, .user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            text-decoration: none;
+            color: var(--medium-text);
+        }
+
+        .brand-info strong, .user-info strong {
+            color: var(--dark-text);
+            display: block;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.25rem;
+            color: var(--dark-text);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-menu > li {
+            position: relative;
+        }
+
+        .nav-menu > li > a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu > li > a:hover {
+            color: var(--primary-rose);
+        }
+
+        /* Mega Menu */
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+            min-width: 950px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            margin-top: 1.5rem;
+        }
+
+        .nav-menu > li:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            margin-top: 0;
+        }
+
+        .mega-menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+        }
+
+        .mega-menu h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-rose);
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .mega-menu ul {
+            list-style: none;
+        }
+
+        .mega-menu ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .mega-menu ul a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: block;
+            padding: 0.3rem 0;
+        }
+
+        .mega-menu ul a:hover {
+            color: var(--primary-rose);
+            padding-right: 0.5rem;
+        }
+
+        .mega-divider {
+            margin: 1.3rem 0;
+            border: none;
+            border-top: 1px solid var(--border);
+        }
+
+        .concerns-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .concern-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.6rem;
+            border-radius: 6px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .concern-item:hover {
+            background: var(--cream);
+        }
+
+        .concern-icon {
+            width: 35px;
+            height: 35px;
+            background: var(--soft-pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .concern-item:hover .concern-icon {
+            background: var(--primary-rose);
+            color: var(--white);
+        }
+
+        .skincare-coach {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .skincare-coach:hover {
+            background: var(--cream);
+            border-color: var(--primary-rose);
+        }
+
+        /* Search Bar */
+        .search-section {
+            background: var(--cream);
+            border-bottom: 1px solid var(--border);
+            padding: 1.2rem 2rem;
+        }
+
+        .search-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-box {
+            display: flex;
+            width: 100%;
+            max-width: 650px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            border: none;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 0.8rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-lavender) 100%);
+            color: var(--white);
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .search-box button:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero Slider */
+        .hero {
+            height: 550px;
+            background: linear-gradient(135deg, #f5e8f0 0%, #e8d8e8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .slide-text h1 {
+            font-size: 4rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-lavender) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slide-text p {
+            font-size: 1.1rem;
+            color: var(--medium-text);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-lavender) 100%);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(200,168,200,0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(200,168,200,0.4);
+        }
+
+        .slide-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-display {
+            width: 450px;
+            height: 450px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            border: 2px solid var(--primary-rose);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--primary-rose);
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        /* Info Cards */
+        .info-section {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+
+        .info-card-inner {
+            display: flex;
+        }
+
+        .info-card-image, .info-card-content {
+            flex: 1;
+            padding: 2.5rem;
+        }
+
+        .info-card-image {
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card ul li {
+            padding: 0.4rem 0 0.4rem 1.2rem;
+            position: relative;
+            color: var(--medium-text);
+        }
+
+        .info-card ul li::before {
+            content: '•';
+            position: absolute;
+            right: 0;
+            color: var(--primary-rose);
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 4rem 2rem;
+            background: var(--white);
+        }
+
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-header p {
+            color: var(--medium-text);
+        }
+
+        .products-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            transform: translateY(-8px);
+        }
+
+        .product-image-container {
+            position: relative;
+            height: 320px;
+            background: var(--cream);
+            overflow: hidden;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 2rem;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.08);
+        }
+
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(200,168,200,0.92);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+
+        .quick-view {
+            width: 45px;
+            height: 45px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-category {
+            font-size: 0.85rem;
+            color: var(--medium-text);
+            margin-bottom: 0.3rem;
+        }
+
+        .product-size {
+            font-size: 0.8rem;
+            color: var(--light-text);
+        }
+
+        .product-ingredients {
+            font-size: 0.75rem;
+            color: var(--primary-rose);
+            margin-top: 0.5rem;
+        }
+
+        /* Video Section */
+        .video-section {
+            background: var(--cream);
+            padding: 4rem 2rem;
+        }
+
+        .video-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .video-player {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: var(--dark-text);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .video-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .video-content p {
+            color: var(--medium-text);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .membership-box {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .membership-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .membership-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-lavender) 100%);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .membership-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(200,168,200,0.3);
+        }
+
+        /* Footer */
+        .footer-cta {
+            background: var(--dark-text);
+            padding: 2rem;
+        }
+
+        .footer-cta-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-cta h3 {
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+
+        .footer-cta-btn {
+            padding: 1rem 2.5rem;
+            background: var(--white);
+            color: var(--dark-text);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .footer-cta-btn:hover {
+            background: var(--primary-rose);
+            color: var(--white);
+        }
+
+        footer {
+            background: #2a2a2a;
+            color: #ccc;
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-rose);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #3a3a3a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-rose);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .badges {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .badge {
+            padding: 0.5rem 1rem;
+            background: #3a3a3a;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .slide-content, .video-container {
+                grid-template-columns: 1fr;
+            }
+            .slide-image {
+                display: none;
+            }
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .info-section {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .slide-text h1 {
+                font-size: 2.5rem;
+            }
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .footer-cta-inner, .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <a href="#" class="brand-info">
+                <span>☁️</span>
+                <div>
+                    <strong>Brand Book</strong>
+                    <small>Download</small>
+                </div>
+            </a>
+            <a href="#" class="user-info">
+                <span>👤</span>
+                <div>
+                    <strong>Join our network</strong>
+                    <small>Login | Register</small>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">DERMOCÉAN</a>
+            
+            <ul class="nav-menu">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#news">What's New</a></li>
+                <li>
+                    <a href="#products">Products</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-grid">
+                            <div>
+                                <h4>Retail Line</h4>
+                                <ul>
+                                    <li><a href="#">Cleansers & Tonners</a></li>
+                                    <li><a href="#">Exfoliators & Masks</a></li>
+                                    <li><a href="#">Oxygen Line</a></li>
+                                    <li><a href="#">Illuminating Line</a></li>
+                                    <li><a href="#">Age Reverse</a></li>
+                                </ul>
+                                <hr class="mega-divider">
+                                <h4>Professional Line</h4>
+                                <ul>
+                                    <li><a href="#">Peeling Treatments</a></li>
+                                    <li><a href="#">Algae Peeling Regimen</a></li>
+                                    <li><a href="#">Renaissance Alchemies</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Skin Concern</h4>
+                                <div class="concerns-grid">
+                                    <div class="concern-item">
+                                        <div class="concern-icon">🔴</div>
+                                        <span>Acne breakouts</span>
+                                    </div>
+                                    <div class="concern-item">
+                                        <div class="concern-icon">💧</div>
+                                        <span>Dryness</span>
+                                    </div>
+                                    <div class="concern-item">
+                                        <div class="concern-icon">🌸</div>
+                                        <span>Sensitivity</span>
+                                    </div>
+                                    <div class="concern-item">
+                                        <div class="concern-icon">📏</div>
+                                        <span>Fine lines</span>
+                                    </div>
+                                    <div class="concern-item">
+                                        <div class="concern-icon">⬇️</div>
+                                        <span>Loss of Firmness</span>
+                                    </div>
+                                    <div class="concern-item">
+                                        <div class="concern-icon">🌑</div>
+                                        <span>Pigmentation</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li>
+                    <div class="skincare-coach">
+                        <span>💡</span>
+                        <span>Skincare Coach</span>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Search -->
+    <div class="search-section">
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" placeholder="Search for products">
+                <button>Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Slider -->
+    <section class="hero">
+        <div class="slide active">
+            <div class="slide-content">
+                <div class="slide-text">
+                    <h1><span class="highlight">CALMING MASK</span><br>للبشرة الحساسة</h1>
+                    <p>قناع مهدئ بتركيبة طبيعية خالصة. مع Green Algae، Calendula، Chamomile، وMelissa لتهدئة البشرة الحساسة وحمايتها من الأشعة الضارة.</p>
+                    <a href="#products" class="cta-btn">اكتشف المنتجات</a>
+                </div>
+                <div class="slide-image">
+                    <div class="product-display">
+                        <svg width="250" height="350" viewBox="0 0 250 350">
+                            <defs>
+                                <linearGradient id="g1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#d4a5a5"/>
+                                    <stop offset="100%" style="stop-color:#c8b8d8"/>
+                                </linearGradient>
+                            </defs>
+                            <ellipse cx="125" cy="175" rx="60" ry="130" fill="url(#g1)" opacity="0.6"/>
+                            <rect x="95" y="75" width="60" height="180" rx="30" fill="url(#g1)" opacity="0.9"/>
+                            <circle cx="125" cy="70" r="20" fill="#e8d8e8"/>
+                            <text x="125" y="320" text-anchor="middle" font-size="14" fill="#666">CALMING MASK</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- Info Cards -->
+    <section class="info-section">
+        <div class="info-card">
+            <div class="info-card-inner">
+                <div class="info-card-image">
+                    <svg width="200" height="250" viewBox="0 0 200 250">
+                        <ellipse cx="100" cy="125" rx="50" ry="100" fill="#e8d8e8" opacity="0.7"/>
+                        <rect x="75" y="50" width="50" height="150" rx="25" fill="#d4a5a5" opacity="0.8"/>
+                    </svg>
+                </div>
+                <div class="info-card-content">
+                    <h3>Product Lines</h3>
+                    <ul>
+                        <li>Cleansers, Tonners & Masks</li>
+                        <li>Oxygen Line</li>
+                        <li>Oily & Combination Skin</li>
+                        <li>Illuminating Line</li>
+                        <li>Age Reverse</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <div class="info-card-inner">
+                <div class="info-card-content">
+                    <h3>Cabin Care Treatments</h3>
+                    <p>جلسات تقشير الطحالب المتعددة مع لمسة الطحالب بنتائج مثبتة علمياً</p>
+                    <br>
+                    <a href="#treatments" class="cta-btn">اكتشف العلاجات</a>
+                </div>
+                <div class="info-card-image">
+                    <svg width="200" height="250" viewBox="0 0 200 250">
+                        <circle cx="100" cy="125" r="70" fill="#c8b8d8" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="section-header">
+            <h2>Products</h2>
+            <p>Pure Nature Proven Results</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1: Calming Mask -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Cdefs%3E%3ClinearGradient id='p1' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23d4a5a5'/%3E%3Cstop offset='100%25' style='stop-color:%23c8b8d8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='100' cy='150' rx='50' ry='110' fill='url(%23p1)' opacity='0.7'/%3E%3Crect x='75' y='70' width='50' height='150' rx='25' fill='url(%23p1)' opacity='0.9'/%3E%3Ccircle cx='100' cy='65' r='15' fill='%23e8d8e8'/%3E%3C/svg%3E" class="product-img">
+                    <div class="product-overlay">
+                        <div class="quick-view">👁️</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Calming Mask</h3>
+                    <p class="product-category">قناع مهدئ للبشرة الحساسة</p>
+                    <p class="product-size">50ml / 1.69 fl.oz</p>
+                    <p class="product-ingredients">🌿 Green Algae, Calendula, Chamomile, Melissa</p>
+                </div>
+            </div>
+
+            <!-- Product 2: Peeling Powder -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Cdefs%3E%3ClinearGradient id='p2' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23e8c4d8'/%3E%3Cstop offset='100%25' style='stop-color:%23d4a5a5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='65' y='50' width='70' height='200' rx='35' fill='url(%23p2)' opacity='0.9'/%3E%3Crect x='75' y='60' width='50' height='20' fill='%23c8b8d8'/%3E%3C/svg%3E" class="product-img">
+                    <div class="product-overlay">
+                        <div class="quick-view">👁️</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Peeling Powder</h3>
+                    <p class="product-category">بودرة التقشير بالطحالب الخضراء</p>
+                    <p class="product-size">Professional Treatment</p>
+                    <p class="product-ingredients">🌱 Green Algae, Calendula, Chamomile</p>
+                </div>
+            </div>
+
+            <!-- Product 3: Brightening Cream -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Cdefs%3E%3ClinearGradient id='p3' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f0e8f0'/%3E%3Cstop offset='100%25' style='stop-color:%23d4a5a5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='100' cy='145' rx='55' ry='105' fill='url(%23p3)' opacity='0.7'/%3E%3Crect x='72' y='65' width='56' height='150' rx='28' fill='url(%23p3)' opacity='0.9'/%3E%3C/svg%3E" class="product-img">
+                    <div class="product-overlay">
+                        <div class="quick-view">👁️</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Brightening Cream</h3>
+                    <p class="product-category">كريم التفتيح والتوحيد</p>
+                    <p class="product-size">50ml / 1.69 fl.oz</p>
+                    <p class="product-ingredients">✨ Vitamin C, Niacinamide</p>
+                </div>
+            </div>
+
+            <!-- Product 4: Hydro Serum -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Cdefs%3E%3ClinearGradient id='p4' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23c8b8d8'/%3E%3Cstop offset='100%25' style='stop-color:%23e8d8e8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='85' y='75' width='30' height='145' rx='15' fill='url(%23p4)' opacity='0.9'/%3E%3Ccircle cx='100' cy='70' r='12' fill='%23d4a5a5'/%3E%3C/svg%3E" class="product-img">
+                    <div class="product-overlay">
+                        <div class="quick-view">👁️</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Hydro Serum</h3>
+                    <p class="product-category">سيروم الترطيب العميق</p>
+                    <p class="product-size">30ml / 1.01 fl.oz</p>
+                    <p class="product-ingredients">💧 Hyaluronic Acid</p>
+                </div>
+            </div>
+
+            <!-- Product 5: Oxygen Line Cream -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Cdefs%3E%3ClinearGradient id='p5' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23e8d8e8'/%3E%3Cstop offset='100%25' style='stop-color:%23c8b8d8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='100' cy='150' rx='50' ry='100' fill='url(%23p5)' opacity='0.6'/%3E%3Crect x='75' y='75' width='50' height='140' rx='25' fill='url(%23p5)' opacity='0.9'/%3E%3C/svg%3E" class="product-img">
+                    <div class="product-overlay">
+                        <div class="quick-view">👁️</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Oxygen Cream</h3>
+                    <p class="product-category">Oxygen Line - تنفس البشرة</p>
+                    <p class="product-size">50ml / 1.69 fl.oz</p>
+                    <p class="product-ingredients">🌬️ Oxygen Complex</p>
+                </div>
+            </div>
+
+            <!-- Product 6: Age Reverse Cream -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Cdefs%3E%3ClinearGradient id='p6' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23d4a5a5'/%3E%3Cstop offset='100%25' style='stop-color:%23b8a5c8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='100' cy='145' rx='53' ry='108' fill='url(%23p6)' opacity='0.7'/%3E%3Crect x='73' y='62' width='54' height='155' rx='27' fill='url(%23p6)' opacity='0.9'/%3E%3C/svg%3E" class="product-img">
+                    <div class="product-overlay">
+                        <div class="quick-view">👁️</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Age Reverse Cream</h3>
+                    <p class="product-category">كريم مكافحة التجاعيد</p>
+                    <p class="product-size">50ml / 1.69 fl.oz</p>
+                    <p class="product-ingredients">🌟 Retinol, Peptides</p>
+                </div>
+            </div>
+
+            <!-- Product 7: Gentle Cleanser -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Cdefs%3E%3ClinearGradient id='p7' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f0e8f0'/%3E%3Cstop offset='100%25' style='stop-color:%23e8c4d8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='100' cy='150' rx='48' ry='115' fill='url(%23p7)' opacity='0.7'/%3E%3Crect x='77' y='60' width='46' height='165' rx='23' fill='url(%23p7)' opacity='0.9'/%3E%3C/svg%3E" class="product-img">
+                    <div class="product-overlay">
+                        <div class="quick-view">👁️</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Gentle Cleanser</h3>
+                    <p class="product-category">منظف لطيف للبشرة الحساسة</p>
+                    <p class="product-size">200ml / 6.76 fl.oz</p>
+                    <p class="product-ingredients">🌸 Chamomile, Aloe Vera</p>
+                </div>
+            </div>
+
+            <!-- Product 8: Treatment Kit -->
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Cdefs%3E%3ClinearGradient id='p8' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23c8b8d8'/%3E%3Cstop offset='100%25' style='stop-color:%23d4a5a5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='50' y='80' width='100' height='140' rx='10' fill='url(%23p8)' opacity='0.8'/%3E%3Ccircle cx='80' cy='120' r='15' fill='%23e8d8e8' opacity='0.9'/%3E%3Ccircle cx='120' cy='120' r='15' fill='%23e8d8e8' opacity='0.9'/%3E%3Ccircle cx='100' cy='160' r='12' fill='%23e8d8e8' opacity='0.9'/%3E%3C/svg%3E" class="product-img">
+                    <div class="product-overlay">
+                        <div class="quick-view">👁️</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Peeling Protocol Kit</h3>
+                    <p class="product-category">مجموعة تقشير الطحالب الكاملة</p>
+                    <p class="product-size">Professional Treatment</p>
+                    <p class="product-ingredients">🌿 Complete Treatment Set</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="video-container">
+            <div class="video-player">
+                <svg width="100%" height="100%" viewBox="0 0 800 450" style="position: absolute;">
+                    <defs>
+                        <linearGradient id="vg" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3a3a3a"/>
+                            <stop offset="100%" style="stop-color:#2a2a2a"/>
+                        </linearGradient>
+                    </defs>
+                    <rect fill="url(#vg)" width="800" height="450"/>
+                    <circle cx="400" cy="225" r="60" fill="#d4a5a5" opacity="0.8"/>
+                    <polygon points="380,200 380,250 420,225" fill="white"/>
+                </svg>
+            </div>
+            <div class="video-content">
+                <h2>DERMOCÉAN<br>Worldwide Network</h2>
+                <p>
+                    انضم إلى شبكتنا العالمية من محترفي العناية بالبشرة.
+                    تجربة قوة الطبيعة الخالصة مع نتائج مثبتة علمياً.
+                </p>
+                
+                <div class="membership-box">
+                    <h3>Already a member?</h3>
+                    <a href="#" class="membership-btn">Login Now</a>
+                    
+                    <h3 style="margin-top: 1.5rem;">Not a member?</h3>
+                    <p>كن شريكاً. أكمل النموذج واحصل على معلومات أكثر عن منتجاتنا.</p>
+                    <a href="#" class="membership-btn" style="margin-top: 1rem;">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <div class="footer-cta">
+        <div class="footer-cta-inner">
+            <h3>NEED HELP? <span style="font-weight: 300;">Our representatives can guide you</span></h3>
+            <a href="#contact" class="footer-cta-btn">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Dermocean.com</h4>
+                <ul>
+                    <li><a href="#">Who we are</a></li>
+                    <li><a href="#">Our Product offer</a></li>
+                    <li><a href="#">What powers our products</a></li>
+                    <li><a href="#">Skin Specialist Consultation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Dispatch & Delivery</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">F.A.Q</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Track Your Order</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <p>@dermoceanofficial</p>
+                <div class="social-icons">
+                    <div class="social-icon">📘</div>
+                    <div class="social-icon">📷</div>
+                    <div class="social-icon">🔗</div>
+                    <div class="social-icon">📺</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 DERMOCÉAN - Pure Nature Proven Results | All Rights Reserved</p>
+            <div class="badges">
+                <div class="badge">🏅 Dermatologically Tested</div>
+                <div class="badge">🌿 100% Natural Ingredients</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(n) {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            if (n >= slides.length) currentSlide = 0;
+            if (n < 0) currentSlide = slides.length - 1;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                currentSlide = i;
+                showSlide(currentSlide);
+            });
+        });
+
+        setInterval(() => {
+            currentSlide++;
+            showSlide(currentSlide);
+        }, 5000);
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Quick view
+        document.querySelectorAll('.quick-view').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Product details coming soon! 🛍️');
+            });
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.product-card, .info-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

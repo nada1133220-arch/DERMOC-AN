@@ -1,0 +1,2233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DERMOCÉAN | Professional Skincare Excellence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose-gold: #b87d6a;
+            --dusty-rose: #a08a8a;
+            --mauve: #8b7e8b;
+            --charcoal: #2a2a2a;
+            --dark: #3a3a3a;
+            --slate: #5a5a5a;
+            --cream: #f5f0ed;
+            --white: #ffffff;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Loading */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #b87d6a 0%, #8b7e8b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #b87d6a 0%, #8b7e8b 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 9999;
+            transform: translateX(400px);
+            transition: transform 0.4s;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--charcoal);
+            color: white;
+            text-align: center;
+            padding: 0.8rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--rose-gold);
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        /* Mega Menu Dropdown */
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            padding: 2.5rem;
+            min-width: 900px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            margin-top: 1.5rem;
+            z-index: 1001;
+            border-top: 3px solid var(--rose-gold);
+            border-radius: 0 0 10px 10px;
+        }
+
+        .nav-links li:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            margin-top: 0.5rem;
+        }
+
+        .mega-menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .mega-menu-section h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--rose-gold);
+        }
+
+        .mega-menu-section ul {
+            list-style: none;
+        }
+
+        .mega-menu-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .mega-menu-section ul a {
+            color: var(--slate);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: block;
+            padding: 0.4rem 0;
+        }
+
+        .mega-menu-section ul a:hover {
+            color: var(--rose-gold);
+            padding-left: 0.8rem;
+        }
+
+        .mega-divider {
+            margin: 1.2rem 0;
+            border: none;
+            border-top: 1px solid var(--border);
+        }
+
+        .concern-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+        }
+
+        .concern-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .concern-item:hover {
+            background: linear-gradient(135deg, #f5f0ed 0%, #e8e0dd 100%);
+            border-color: var(--rose-gold);
+        }
+
+        .concern-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: var(--rose-gold);
+            flex-shrink: 0;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--charcoal);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #f5f0ed 0%, #e8e0dd 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero .highlight {
+            background: linear-gradient(135deg, #b87d6a 0%, #8b7e8b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--slate);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #b87d6a 0%, #8b7e8b 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(184,125,106,0.4);
+        }
+
+        /* Products Page */
+        .products-page {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header .divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #b87d6a 0%, #8b7e8b 100%);
+            margin: 1.5rem auto;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.7rem 1.5rem;
+            background: white;
+            border: 2px solid var(--border);
+            color: var(--charcoal);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            border-radius: 5px;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: linear-gradient(135deg, #b87d6a 0%, #8b7e8b 100%);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+        }
+
+        .product-image {
+            position: relative;
+            height: 350px;
+            background: var(--cream);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, #b87d6a 0%, #8b7e8b 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 5px;
+        }
+
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(42,42,42,0.92);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+
+        .overlay-btn {
+            padding: 0.8rem 2rem;
+            background: transparent;
+            color: var(--rose-gold);
+            border: 2px solid var(--rose-gold);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 5px;
+        }
+
+        .overlay-btn:hover {
+            background: var(--rose-gold);
+            color: white;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+
+        .product-subtitle {
+            font-size: 0.85rem;
+            color: var(--slate);
+            font-style: italic;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 1000px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--charcoal);
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 3rem;
+        }
+
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .product-detail-image {
+            background: var(--cream);
+            border-radius: 10px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-detail-image img {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .product-detail-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-detail-info .subtitle {
+            color: var(--slate);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .product-detail-info .description {
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--charcoal);
+        }
+
+        .product-tabs {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--slate);
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            color: var(--rose-gold);
+            border-bottom-color: var(--rose-gold);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 2rem 0;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--rose-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #b87d6a 0%, #8b7e8b 100%);
+            color: white;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Progress Ring for Scroll */
+        .scroll-progress {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            z-index: 999;
+        }
+
+        .scroll-progress svg {
+            transform: rotate(-90deg);
+        }
+
+        .scroll-progress-circle {
+            fill: none;
+            stroke: var(--rose-gold);
+            stroke-width: 3;
+            stroke-dasharray: 157;
+            stroke-dashoffset: 157;
+            transition: stroke-dashoffset 0.1s;
+        }
+
+        /* Live Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            z-index: 998;
+            animation: pulse 2s infinite;
+        }
+
+        .chat-widget:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .chat-widget svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 5px 30px rgba(37, 211, 102, 0.8);
+            }
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            position: fixed;
+            bottom: 180px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 998;
+        }
+
+        .quick-action-btn {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .quick-action-btn:hover {
+            background: linear-gradient(135deg, #b87d6a 0%, #8b7e8b 100%);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Product Compare Feature */
+        .compare-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 2px solid var(--rose-gold);
+            padding: 1rem 2rem;
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            z-index: 997;
+        }
+
+        .compare-bar.active {
+            display: flex;
+        }
+
+        /* Search Overlay */
+        .search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-overlay.active {
+            display: flex;
+        }
+
+        .search-overlay-content {
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .search-overlay input {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            font-size: 2rem;
+            border: none;
+            background: white;
+            border-radius: 10px;
+        }
+
+        /* Announcement Banner */
+        .announcement-banner {
+            background: linear-gradient(135deg, #b87d6a 0%, #8b7e8b 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .announcement-close {
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0 0.5rem;
+        }
+
+        /* Mobile Menu Sidebar */
+        .mobile-menu-sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.3);
+            z-index: 9999;
+            transition: right 0.4s;
+            overflow-y: auto;
+        }
+
+        .mobile-menu-sidebar.open {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, #b87d6a 0%, #8b7e8b 100%);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-menu-close {
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu-items {
+            padding: 1.5rem;
+        }
+
+        .mobile-menu-items a {
+            display: block;
+            padding: 1rem;
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-items a:hover {
+            background: var(--cream);
+            padding-left: 1.5rem;
+        }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 9998;
+        }
+
+        .mobile-overlay.active {
+            display: block;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mega-menu {
+                display: none !important;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .product-detail {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .modal-body {
+                padding: 2rem 1rem;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .product-tabs {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .products-page {
+                padding: 2rem 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        🌟 FREE CONSULTATION | PROFESSIONAL SKINCARE EXCELLENCE
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#home" class="logo" onclick="showPage('home')">DERMOCÉAN</a>
+            
+            <ul class="nav-links">
+                <li><a href="#home" onclick="showPage('home')" data-i18n="home">HOME</a></li>
+                <li>
+                    <a href="#products" onclick="showPage('products')" data-i18n="products">PRODUCTS</a>
+                    <!-- Mega Menu -->
+                    <div class="mega-menu">
+                        <div class="mega-menu-grid">
+                            <!-- Column 1 -->
+                            <div class="mega-menu-section">
+                                <h4>BY CATEGORY</h4>
+                                <ul>
+                                    <li><a href="#" onclick="showPage('products'); filterProducts('peeling'); event.stopPropagation();">Peeling Systems</a></li>
+                                    <li><a href="#" onclick="showPage('products'); filterProducts('masks'); event.stopPropagation();">Masks & Treatments</a></li>
+                                    <li><a href="#" onclick="showPage('products'); filterProducts('creams'); event.stopPropagation();">Creams & Serums</a></li>
+                                    <li><a href="#" onclick="showPage('products'); filterProducts('suncare'); event.stopPropagation();">Sun Protection</a></li>
+                                </ul>
+                                <hr class="mega-divider">
+                                <h4>COLLECTIONS</h4>
+                                <ul>
+                                    <li><a href="#" onclick="showPage('products'); filterProducts('professional'); event.stopPropagation();">Professional Line</a></li>
+                                    <li><a href="#" onclick="showPage('products'); filterProducts('luxury'); event.stopPropagation();">Signature Collection</a></li>
+                                    <li><a href="#" onclick="showPage('products'); filterProducts('new'); event.stopPropagation();">New Arrivals</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 2 -->
+                            <div class="mega-menu-section">
+                                <h4>BY SKIN TYPE</h4>
+                                <div class="concern-grid">
+                                    <div class="concern-item" onclick="showPage('products'); filterProducts('sensitive'); event.stopPropagation();">
+                                        <div class="concern-icon">S</div>
+                                        <span>Sensitive Skin</span>
+                                    </div>
+                                    <div class="concern-item" onclick="showPage('products'); filterProducts('all'); event.stopPropagation();">
+                                        <div class="concern-icon">N</div>
+                                        <span>Normal Skin</span>
+                                    </div>
+                                    <div class="concern-item" onclick="showPage('products'); filterProducts('all'); event.stopPropagation();">
+                                        <div class="concern-icon">D</div>
+                                        <span>Dry Skin</span>
+                                    </div>
+                                    <div class="concern-item" onclick="showPage('products'); filterProducts('all'); event.stopPropagation();">
+                                        <div class="concern-icon">O</div>
+                                        <span>Oily Skin</span>
+                                    </div>
+                                    <div class="concern-item" onclick="showPage('products'); filterProducts('all'); event.stopPropagation();">
+                                        <div class="concern-icon">C</div>
+                                        <span>Combination Skin</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Column 3 -->
+                            <div class="mega-menu-section">
+                                <h4>BY CONCERN</h4>
+                                <div class="concern-grid">
+                                    <div class="concern-item" onclick="showPage('products'); filterProducts('all'); event.stopPropagation();">
+                                        <div class="concern-icon">A</div>
+                                        <span>Anti-Aging</span>
+                                    </div>
+                                    <div class="concern-item" onclick="showPage('products'); filterProducts('all'); event.stopPropagation();">
+                                        <div class="concern-icon">H</div>
+                                        <span>Hydration</span>
+                                    </div>
+                                    <div class="concern-item" onclick="showPage('products'); filterProducts('all'); event.stopPropagation();">
+                                        <div class="concern-icon">B</div>
+                                        <span>Brightening</span>
+                                    </div>
+                                    <div class="concern-item" onclick="showPage('products'); filterProducts('peeling'); event.stopPropagation();">
+                                        <div class="concern-icon">E</div>
+                                        <span>Exfoliation</span>
+                                    </div>
+                                    <div class="concern-item" onclick="showPage('products'); filterProducts('suncare'); event.stopPropagation();">
+                                        <div class="concern-icon">P</div>
+                                        <span>Sun Protection</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#about" onclick="showPage('about')" data-i18n="about">ABOUT</a></li>
+                <li><a href="#contact" onclick="showPage('contact')" data-i18n="contact">CONTACT</a></li>
+                <li style="position: relative;">
+                    <a href="#" style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🌐</span>
+                        <span id="current-lang">EN</span>
+                    </a>
+                    <div class="mega-menu" style="min-width: 180px; padding: 1rem;">
+                        <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                            <a href="#" onclick="changeLanguage('en'); event.preventDefault();" style="padding: 0.8rem; border: 1px solid var(--border); border-radius: 5px; text-align: center; transition: all 0.3s;">
+                                🇬🇧 English
+                            </a>
+                            <a href="#" onclick="changeLanguage('ar'); event.preventDefault();" style="padding: 0.8rem; border: 1px solid var(--border); border-radius: 5px; text-align: center; transition: all 0.3s;">
+                                🇸🇦 العربية
+                            </a>
+                            <a href="#" onclick="changeLanguage('fr'); event.preventDefault();" style="padding: 0.8rem; border: 1px solid var(--border); border-radius: 5px; text-align: center; transition: all 0.3s;">
+                                🇫🇷 Français
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="mobile-menu" onclick="toggleMobileMenu()">☰</div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobile-overlay" onclick="closeMobileMenu()"></div>
+
+    <!-- Mobile Menu Sidebar -->
+    <div class="mobile-menu-sidebar" id="mobile-menu-sidebar">
+        <div class="mobile-menu-header">
+            <h3>MENU</h3>
+            <div class="mobile-menu-close" onclick="closeMobileMenu()">×</div>
+        </div>
+        <div class="mobile-menu-items">
+            <a href="#" onclick="showPage('home'); closeMobileMenu();">HOME</a>
+            <a href="#" onclick="showPage('products'); closeMobileMenu();">PRODUCTS</a>
+            <a href="#" onclick="showPage('about'); closeMobileMenu();">ABOUT</a>
+            <a href="#" onclick="showPage('contact'); closeMobileMenu();">CONTACT</a>
+        </div>
+    </div>
+
+    <!-- Home Page -->
+    <div id="home-page" class="page">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>
+                    PROFESSIONAL<br>
+                    <span class="highlight">SKINCARE</span><br>
+                    EXCELLENCE
+                </h1>
+                <p>
+                    Pure Nature, Proven Results. Discover scientifically proven, 
+                    nature-derived formulations crafted for professional skincare excellence.
+                </p>
+                <a href="#products" class="btn btn-primary" onclick="showPage('products')">EXPLORE PRODUCTS</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section style="padding: 4rem 2rem; background: white;">
+            <div style="max-width: 1400px; margin: 0 auto;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; text-align: center;">
+                    <div style="padding: 2rem;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🌿</div>
+                        <h3 style="margin-bottom: 1rem; font-size: 1.3rem;">100% Natural</h3>
+                        <p style="color: var(--slate);">Pure natural ingredients from sustainable sources</p>
+                    </div>
+                    <div style="padding: 2rem;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🔬</div>
+                        <h3 style="margin-bottom: 1rem; font-size: 1.3rem;">Scientifically Proven</h3>
+                        <p style="color: var(--slate);">Backed by clinical research and testing</p>
+                    </div>
+                    <div style="padding: 2rem;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">⭐</div>
+                        <h3 style="margin-bottom: 1rem; font-size: 1.3rem;">Professional Grade</h3>
+                        <p style="color: var(--slate);">Trusted by dermatologists worldwide</p>
+                    </div>
+                    <div style="padding: 2rem;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+                        <h3 style="margin-bottom: 1rem; font-size: 1.3rem;">Visible Results</h3>
+                        <p style="color: var(--slate);">See the difference in your skin</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section style="padding: 4rem 2rem; background: linear-gradient(135deg, #f5f0ed 0%, #e8e0dd 100%); text-align: center;">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Join Our Community</h2>
+                <p style="font-size: 1.1rem; color: var(--slate); margin-bottom: 2rem;">
+                    Subscribe to receive exclusive offers, skincare tips, and product updates
+                </p>
+                <div style="display: flex; gap: 1rem; max-width: 600px; margin: 0 auto; flex-wrap: wrap; justify-content: center;">
+                    <input type="email" id="newsletter-email" placeholder="Enter your email" style="flex: 1; min-width: 250px; padding: 1rem 1.5rem; border: 2px solid var(--border); border-radius: 5px; font-size: 0.95rem;">
+                    <button class="btn btn-primary" onclick="subscribe()" style="white-space: nowrap;">SUBSCRIBE</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about-page" class="page" style="display: none;">
+        <div style="padding: 4rem 2rem; max-width: 1200px; margin: 0 auto;">
+            <div class="page-header">
+                <h1>ABOUT DERMOCÉAN</h1>
+                <div class="divider"></div>
+            </div>
+            
+            <div style="line-height: 1.9; font-size: 1.1rem; color: var(--charcoal);">
+                <p style="margin-bottom: 2rem;">
+                    DERMOCÉAN is a professional skincare brand dedicated to delivering 
+                    exceptional results through the perfect fusion of nature and science. 
+                    Our formulations harness the power of natural marine and botanical 
+                    ingredients, backed by rigorous clinical research.
+                </p>
+
+                <h2 style="font-size: 2rem; margin: 3rem 0 1.5rem;">Our Philosophy</h2>
+                <p style="margin-bottom: 2rem;">
+                    We believe that effective skincare doesn't require harsh chemicals 
+                    or synthetic ingredients. By utilizing the purest natural actives 
+                    combined with cutting-edge dermatological science, we create products 
+                    that deliver professional-grade results while being gentle on the skin.
+                </p>
+
+                <h2 style="font-size: 2rem; margin: 3rem 0 1.5rem;">Our Commitment</h2>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 1rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 1rem;">
+                        <span style="color: var(--rose-gold); font-size: 1.5rem;">✓</span>
+                        <span>100% Natural Active Ingredients</span>
+                    </li>
+                    <li style="padding: 1rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 1rem;">
+                        <span style="color: var(--rose-gold); font-size: 1.5rem;">✓</span>
+                        <span>Clinically Tested and Proven</span>
+                    </li>
+                    <li style="padding: 1rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 1rem;">
+                        <span style="color: var(--rose-gold); font-size: 1.5rem;">✓</span>
+                        <span>Dermatologist Recommended</span>
+                    </li>
+                    <li style="padding: 1rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 1rem;">
+                        <span style="color: var(--rose-gold); font-size: 1.5rem;">✓</span>
+                        <span>Sustainable and Ethical Sourcing</span>
+                    </li>
+                    <li style="padding: 1rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 1rem;">
+                        <span style="color: var(--rose-gold); font-size: 1.5rem;">✓</span>
+                        <span>Cruelty-Free and Environmentally Conscious</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact-page" class="page" style="display: none;">
+        <div style="padding: 4rem 2rem; max-width: 1000px; margin: 0 auto;">
+            <div class="page-header">
+                <h1>CONTACT US</h1>
+                <div class="divider"></div>
+                <p>We're here to help with any questions about our products</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin: 3rem 0;">
+                <div style="text-align: center; padding: 2rem; background: var(--cream); border-radius: 10px;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📧</div>
+                    <h3 style="margin-bottom: 0.5rem;">EMAIL</h3>
+                    <p style="color: var(--slate);">info@dermocean.com</p>
+                </div>
+                <div style="text-align: center; padding: 2rem; background: var(--cream); border-radius: 10px;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📞</div>
+                    <h3 style="margin-bottom: 0.5rem;">PHONE</h3>
+                    <p style="color: var(--slate);">+1 (555) 123-4567</p>
+                </div>
+                <div style="text-align: center; padding: 2rem; background: var(--cream); border-radius: 10px;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📍</div>
+                    <h3 style="margin-bottom: 0.5rem;">LOCATION</h3>
+                    <p style="color: var(--slate);">Worldwide Shipping</p>
+                </div>
+            </div>
+
+            <div style="background: white; padding: 3rem; border: 1px solid var(--border); border-radius: 10px; margin-top: 3rem;">
+                <h3 style="margin-bottom: 2rem; font-size: 1.5rem;">Send us a Message</h3>
+                <form onsubmit="sendMessage(event)">
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Name</label>
+                        <input type="text" required style="width: 100%; padding: 1rem; border: 2px solid var(--border); border-radius: 5px; font-size: 0.95rem;">
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Email</label>
+                        <input type="email" required style="width: 100%; padding: 1rem; border: 2px solid var(--border); border-radius: 5px; font-size: 0.95rem;">
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Message</label>
+                        <textarea required rows="5" style="width: 100%; padding: 1rem; border: 2px solid var(--border); border-radius: 5px; font-size: 0.95rem; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Page -->
+    <div id="products-page" class="page" style="display: none;">
+        <div class="products-page">
+            <div class="page-header">
+                <h1>OUR PRODUCTS</h1>
+                <div class="divider"></div>
+                <p>Professional-Grade Formulations</p>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" onclick="filterProducts('all')">ALL PRODUCTS</button>
+                <button class="filter-btn" onclick="filterProducts('peeling')">PEELING SYSTEMS</button>
+                <button class="filter-btn" onclick="filterProducts('masks')">MASKS</button>
+                <button class="filter-btn" onclick="filterProducts('creams')">CREAMS</button>
+                <button class="filter-btn" onclick="filterProducts('suncare')">SUN PROTECTION</button>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <!-- Products loaded by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeModal()">×</div>
+            <div class="modal-body" id="product-detail">
+                <!-- Product details loaded by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>DERMOCÉAN</h4>
+                <p>Professional skincare excellence. Trusted by dermatologists worldwide.</p>
+            </div>
+            <div class="footer-section">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('products')">Products</a></li>
+                    <li><a href="#" onclick="showPage('about')">About</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>CONTACT</h4>
+                <p>Email: info@dermocean.com</p>
+                <p>Phone: +1 (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 DERMOCÉAN. Professional Skincare Excellence. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top" id="scroll-top" onclick="scrollToTop()">↑</div>
+
+    <!-- Scroll Progress Ring -->
+    <svg class="scroll-progress" id="scroll-progress">
+        <circle cx="25" cy="25" r="23" class="scroll-progress-circle" id="progress-circle"></circle>
+    </svg>
+
+    <!-- WhatsApp Chat Widget -->
+    <div class="chat-widget" onclick="openWhatsApp()" title="Chat with us on WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+        <div class="quick-action-btn" onclick="openSearch()" title="Search">
+            🔍
+        </div>
+        <div class="quick-action-btn" onclick="showPage('contact')" title="Contact">
+            📧
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-content">
+            <input type="text" id="overlay-search" placeholder="Search products..." onkeyup="quickSearch(event)">
+            <button onclick="closeSearch()" style="margin-top: 2rem; padding: 1rem 3rem; background: white; color: var(--charcoal); border: none; border-radius: 5px; cursor: pointer; font-weight: 700;">CLOSE (ESC)</button>
+        </div>
+    </div>
+
+    <script>
+        // Multi-Language System - Professional Translations
+        const translations = {
+            en: {
+                // Navigation
+                home: "HOME",
+                products: "PRODUCTS",
+                about: "ABOUT",
+                contact: "CONTACT",
+                
+                // Top Bar
+                topBar: "🌟 FREE CONSULTATION | PROFESSIONAL SKINCARE EXCELLENCE",
+                
+                // Hero
+                heroTitle1: "PROFESSIONAL",
+                heroTitle2: "SKINCARE",
+                heroTitle3: "EXCELLENCE",
+                heroSubtitle: "Pure Nature, Proven Results. Discover scientifically proven, nature-derived formulations crafted for professional skincare excellence.",
+                exploreProducts: "EXPLORE PRODUCTS",
+                
+                // Mega Menu
+                byCategory: "BY CATEGORY",
+                peelingSystems: "Peeling Systems",
+                masksTreatments: "Masks & Treatments",
+                creamsSerums: "Creams & Serums",
+                sunProtection: "Sun Protection",
+                collections: "COLLECTIONS",
+                professionalLine: "Professional Line",
+                signatureCollection: "Signature Collection",
+                newArrivals: "New Arrivals",
+                bySkinType: "BY SKIN TYPE",
+                sensitiveSkin: "Sensitive Skin",
+                normalSkin: "Normal Skin",
+                drySkin: "Dry Skin",
+                oilySkin: "Oily Skin",
+                combinationSkin: "Combination Skin",
+                byConcern: "BY CONCERN",
+                antiAging: "Anti-Aging",
+                hydration: "Hydration",
+                brightening: "Brightening",
+                exfoliation: "Exfoliation",
+                
+                // Features
+                naturalTitle: "100% Natural",
+                naturalDesc: "Pure natural ingredients from sustainable sources",
+                scientificTitle: "Scientifically Proven",
+                scientificDesc: "Backed by clinical research and testing",
+                professionalTitle: "Professional Grade",
+                professionalDesc: "Trusted by dermatologists worldwide",
+                resultsTitle: "Visible Results",
+                resultsDesc: "See the difference in your skin",
+                
+                // Newsletter
+                joinCommunity: "Join Our Community",
+                newsletterDesc: "Subscribe to receive exclusive offers, skincare tips, and product updates",
+                emailPlaceholder: "Enter your email",
+                subscribe: "SUBSCRIBE",
+                
+                // Products Page
+                ourProducts: "OUR PRODUCTS",
+                professionalFormulations: "Professional-Grade Formulations",
+                allProducts: "ALL PRODUCTS",
+                
+                // Product Details
+                viewDetails: "VIEW DETAILS",
+                searchOnline: "SEARCH ONLINE",
+                description: "DESCRIPTION",
+                ingredients: "INGREDIENTS",
+                howToUse: "HOW TO USE",
+                benefits: "BENEFITS",
+                keyIngredients: "Key Ingredients:",
+                application: "Application:",
+                keyBenefits: "Key Benefits:",
+                contactUs: "CONTACT US",
+                
+                // About Page
+                aboutTitle: "ABOUT DERMOCÉAN",
+                aboutIntro: "DERMOCÉAN is a professional skincare brand dedicated to delivering exceptional results through the perfect fusion of nature and science. Our formulations harness the power of natural marine and botanical ingredients, backed by rigorous clinical research.",
+                philosophyTitle: "Our Philosophy",
+                philosophyText: "We believe that effective skincare doesn't require harsh chemicals or synthetic ingredients. By utilizing the purest natural actives combined with cutting-edge dermatological science, we create products that deliver professional-grade results while being gentle on the skin.",
+                commitmentTitle: "Our Commitment",
+                commitment1: "100% Natural Active Ingredients",
+                commitment2: "Clinically Tested and Proven",
+                commitment3: "Dermatologist Recommended",
+                commitment4: "Sustainable and Ethical Sourcing",
+                commitment5: "Cruelty-Free and Environmentally Conscious",
+                
+                // Contact Page
+                contactTitle: "CONTACT US",
+                contactSubtitle: "We're here to help with any questions about our products",
+                email: "EMAIL",
+                phone: "PHONE",
+                location: "LOCATION",
+                worldwideShipping: "Worldwide Shipping",
+                sendMessage: "Send us a Message",
+                name: "Name",
+                message: "Message",
+                sendBtn: "SEND MESSAGE",
+                
+                // Footer
+                footerDesc: "Professional skincare excellence. Trusted by dermatologists worldwide.",
+                quickLinks: "QUICK LINKS",
+                contactInfo: "CONTACT",
+                footerCopyright: "© 2025 DERMOCÉAN. Professional Skincare Excellence. All Rights Reserved.",
+                
+                // Products
+                products: {
+                    1: {
+                        name: "PEELING POWDER",
+                        subtitle: "Professional Exfoliation System",
+                        description: "Professional exfoliation system with green algae extract. Removes dead skin cells and promotes cellular renewal for brighter, smoother skin.",
+                        ingredients: "Green Algae Extract, Calendula, Chamomile Extract, Natural Enzymes",
+                        howToUse: "Mix with Peeling Support Solution to activate. Apply to clean, dry skin. Leave for 5-10 minutes. Rinse thoroughly with lukewarm water.",
+                        benefits: ["Deep Exfoliation", "Cellular Renewal", "Brightening Effect", "Professional Results"]
+                    },
+                    2: {
+                        name: "PEELING SUPPORT SOLUTION",
+                        subtitle: "Activating Treatment Solution",
+                        description: "Activating solution for peeling powder. Enhances exfoliation process and prepares skin for optimal absorption of active ingredients.",
+                        ingredients: "Hydrating Complex, Mineral Salts, Botanical Extracts, pH Balancers",
+                        howToUse: "Mix with Peeling Powder as directed. Apply evenly to face and neck. Follow with appropriate moisturizer.",
+                        benefits: ["Activates Peeling", "Hydrates Skin", "pH Balanced", "Professional Grade"]
+                    },
+                    3: {
+                        name: "CALMING MASK",
+                        subtitle: "Soothing Sensitive Skin Treatment",
+                        description: "Soothing mask for sensitive and reactive skin. Formulated with natural calming ingredients to reduce redness and irritation.",
+                        ingredients: "Green Algae, Calendula, Chamomile, Melissa, Aloe Vera",
+                        howToUse: "Apply generous layer to clean skin. Leave for 15-20 minutes. Rinse with lukewarm water. Use 2-3 times weekly.",
+                        benefits: ["Soothes Irritation", "Reduces Redness", "Calms Sensitive Skin", "Natural Ingredients"]
+                    }
+                }
+            },
+            ar: {
+                // Navigation
+                home: "الرئيسية",
+                products: "المنتجات",
+                about: "من نحن",
+                contact: "اتصل بنا",
+                
+                // Top Bar
+                topBar: "🌟 استشارة مجانية | التميز في العناية الاحترافية بالبشرة",
+                
+                // Hero
+                heroTitle1: "العناية",
+                heroTitle2: "الاحترافية",
+                heroTitle3: "بالبشرة",
+                heroSubtitle: "طبيعة نقية، نتائج مثبتة. اكتشف تركيبات مثبتة علمياً مستمدة من الطبيعة، مصممة للتميز الاحترافي في العناية بالبشرة.",
+                exploreProducts: "استكشف المنتجات",
+                
+                // Mega Menu
+                byCategory: "حسب الفئة",
+                peelingSystems: "أنظمة التقشير",
+                masksTreatments: "الأقنعة والعلاجات",
+                creamsSerums: "الكريمات والأمصال",
+                sunProtection: "الحماية من الشمس",
+                collections: "المجموعات",
+                professionalLine: "الخط الاحترافي",
+                signatureCollection: "المجموعة المميزة",
+                newArrivals: "الوافدات الجديدة",
+                bySkinType: "حسب نوع البشرة",
+                sensitiveSkin: "البشرة الحساسة",
+                normalSkin: "البشرة العادية",
+                drySkin: "البشرة الجافة",
+                oilySkin: "البشرة الدهنية",
+                combinationSkin: "البشرة المختلطة",
+                byConcern: "حسب المشكلة",
+                antiAging: "مكافحة الشيخوخة",
+                hydration: "الترطيب العميق",
+                brightening: "التفتيح",
+                exfoliation: "التقشير",
+                
+                // Features
+                naturalTitle: "100% طبيعي",
+                naturalDesc: "مكونات طبيعية نقية من مصادر مستدامة",
+                scientificTitle: "مثبت علمياً",
+                scientificDesc: "مدعوم بالأبحاث والاختبارات السريرية",
+                professionalTitle: "درجة احترافية",
+                professionalDesc: "موثوق به من قبل أطباء الجلد في جميع أنحاء العالم",
+                resultsTitle: "نتائج مرئية",
+                resultsDesc: "شاهد الفرق في بشرتك",
+                
+                // Newsletter
+                joinCommunity: "انضم إلى مجتمعنا",
+                newsletterDesc: "اشترك لتلقي العروض الحصرية ونصائح العناية بالبشرة وتحديثات المنتجات",
+                emailPlaceholder: "أدخل بريدك الإلكتروني",
+                subscribe: "اشترك",
+                
+                // Products Page
+                ourProducts: "منتجاتنا",
+                professionalFormulations: "تركيبات احترافية",
+                allProducts: "جميع المنتجات",
+                
+                // Product Details
+                viewDetails: "عرض التفاصيل",
+                searchOnline: "بحث على الإنترنت",
+                description: "الوصف",
+                ingredients: "المكونات",
+                howToUse: "طريقة الاستخدام",
+                benefits: "الفوائد",
+                keyIngredients: "المكونات الرئيسية:",
+                application: "الاستخدام:",
+                keyBenefits: "الفوائد الرئيسية:",
+                contactUs: "اتصل بنا",
+                
+                // About Page
+                aboutTitle: "حول DERMOCÉAN",
+                aboutIntro: "DERMOCÉAN هي علامة تجارية احترافية للعناية بالبشرة مكرسة لتقديم نتائج استثنائية من خلال الاندماج المثالي بين الطبيعة والعلم. تسخر تركيباتنا قوة المكونات البحرية والنباتية الطبيعية، مدعومة بأبحاث سريرية صارمة.",
+                philosophyTitle: "فلسفتنا",
+                philosophyText: "نؤمن بأن العناية الفعالة بالبشرة لا تتطلب مواد كيميائية قاسية أو مكونات صناعية. من خلال استخدام أنقى المواد الفعالة الطبيعية مع أحدث علوم الأمراض الجلدية، نخلق منتجات تقدم نتائج احترافية بينما تكون لطيفة على البشرة.",
+                commitmentTitle: "التزامنا",
+                commitment1: "100% مكونات فعالة طبيعية",
+                commitment2: "مختبر سريرياً ومثبت",
+                commitment3: "موصى به من قبل أطباء الجلد",
+                commitment4: "مصادر مستدامة وأخلاقية",
+                commitment5: "خالٍ من القسوة وواعي بيئياً",
+                
+                // Contact Page
+                contactTitle: "اتصل بنا",
+                contactSubtitle: "نحن هنا للمساعدة في أي أسئلة حول منتجاتنا",
+                email: "البريد الإلكتروني",
+                phone: "الهاتف",
+                location: "الموقع",
+                worldwideShipping: "شحن عالمي",
+                sendMessage: "أرسل لنا رسالة",
+                name: "الاسم",
+                message: "الرسالة",
+                sendBtn: "إرسال الرسالة",
+                
+                // Footer
+                footerDesc: "التميز الاحترافي في العناية بالبشرة. موثوق به من قبل أطباء الجلد في جميع أنحاء العالم.",
+                quickLinks: "روابط سريعة",
+                contactInfo: "اتصل",
+                footerCopyright: "© 2025 DERMOCÉAN. التميز الاحترافي في العناية بالبشرة. جميع الحقوق محفوظة.",
+                
+                // Products
+                products: {
+                    1: {
+                        name: "بودرة التقشير",
+                        subtitle: "نظام تقشير احترافي",
+                        description: "نظام تقشير احترافي بخلاصة الطحالب الخضراء. يزيل خلايا الجلد الميتة ويعزز التجديد الخلوي للحصول على بشرة أكثر إشراقاً ونعومة.",
+                        ingredients: "خلاصة الطحالب الخضراء، الكاليندولا، خلاصة البابونج، إنزيمات طبيعية",
+                        howToUse: "امزج مع محلول دعم التقشير للتفعيل. ضعه على بشرة نظيفة وجافة. اتركه لمدة 5-10 دقائق. اشطفه جيداً بالماء الفاتر.",
+                        benefits: ["تقشير عميق", "تجديد خلوي", "تأثير مبيض", "نتائج احترافية"]
+                    },
+                    2: {
+                        name: "محلول دعم التقشير",
+                        subtitle: "محلول علاجي محفز",
+                        description: "محلول محفز لبودرة التقشير. يعزز عملية التقشير ويحضر البشرة للامتصاص الأمثل للمكونات الفعالة.",
+                        ingredients: "مركب مرطب، أملاح معدنية، مستخلصات نباتية، موازنات pH",
+                        howToUse: "امزج مع بودرة التقشير كما هو موضح. ضعه بالتساوي على الوجه والرقبة. اتبعه بمرطب مناسب.",
+                        benefits: ["ينشط التقشير", "يرطب البشرة", "متوازن pH", "درجة احترافية"]
+                    },
+                    3: {
+                        name: "قناع مهدئ",
+                        subtitle: "علاج مهدئ للبشرة الحساسة",
+                        description: "قناع مهدئ للبشرة الحساسة والمتفاعلة. مصمم بمكونات طبيعية مهدئة لتقليل الاحمرار والتهيج.",
+                        ingredients: "الطحالب الخضراء، الكاليندولا، البابونج، المليسا، الألوفيرا",
+                        howToUse: "ضع طبقة سخية على بشرة نظيفة. اتركه لمدة 15-20 دقيقة. اشطفه بالماء الفاتر. استخدمه 2-3 مرات أسبوعياً.",
+                        benefits: ["يهدئ التهيج", "يقلل الاحمرار", "يهدئ البشرة الحساسة", "مكونات طبيعية"]
+                    }
+                }
+            },
+            fr: {
+                // Navigation
+                home: "ACCUEIL",
+                products: "PRODUITS",
+                about: "À PROPOS",
+                contact: "CONTACT",
+                
+                // Top Bar
+                topBar: "🌟 CONSULTATION GRATUITE | EXCELLENCE EN SOINS DE LA PEAU PROFESSIONNELS",
+                
+                // Hero
+                heroTitle1: "SOINS",
+                heroTitle2: "PROFESSIONNELS",
+                heroTitle3: "D'EXCELLENCE",
+                heroSubtitle: "Nature Pure, Résultats Prouvés. Découvrez des formulations scientifiquement prouvées dérivées de la nature, conçues pour l'excellence professionnelle des soins de la peau.",
+                exploreProducts: "EXPLORER LES PRODUITS",
+                
+                // Mega Menu
+                byCategory: "PAR CATÉGORIE",
+                peelingSystems: "Systèmes de Peeling",
+                masksTreatments: "Masques et Traitements",
+                creamsSerums: "Crèmes et Sérums",
+                sunProtection: "Protection Solaire",
+                collections: "COLLECTIONS",
+                professionalLine: "Ligne Professionnelle",
+                signatureCollection: "Collection Signature",
+                newArrivals: "Nouveautés",
+                bySkinType: "PAR TYPE DE PEAU",
+                sensitiveSkin: "Peau Sensible",
+                normalSkin: "Peau Normale",
+                drySkin: "Peau Sèche",
+                oilySkin: "Peau Grasse",
+                combinationSkin: "Peau Mixte",
+                byConcern: "PAR PRÉOCCUPATION",
+                antiAging: "Anti-Âge",
+                hydration: "Hydratation",
+                brightening: "Éclaircissement",
+                exfoliation: "Exfoliation",
+                
+                // Features
+                naturalTitle: "100% Naturel",
+                naturalDesc: "Ingrédients naturels purs provenant de sources durables",
+                scientificTitle: "Scientifiquement Prouvé",
+                scientificDesc: "Soutenu par la recherche clinique et les tests",
+                professionalTitle: "Qualité Professionnelle",
+                professionalDesc: "Approuvé par les dermatologues du monde entier",
+                resultsTitle: "Résultats Visibles",
+                resultsDesc: "Voyez la différence sur votre peau",
+                
+                // Newsletter
+                joinCommunity: "Rejoignez Notre Communauté",
+                newsletterDesc: "Abonnez-vous pour recevoir des offres exclusives, des conseils de soins de la peau et des mises à jour de produits",
+                emailPlaceholder: "Entrez votre email",
+                subscribe: "S'ABONNER",
+                
+                // Products Page
+                ourProducts: "NOS PRODUITS",
+                professionalFormulations: "Formulations Professionnelles",
+                allProducts: "TOUS LES PRODUITS",
+                
+                // Product Details
+                viewDetails: "VOIR DÉTAILS",
+                searchOnline: "RECHERCHER EN LIGNE",
+                description: "DESCRIPTION",
+                ingredients: "INGRÉDIENTS",
+                howToUse: "MODE D'EMPLOI",
+                benefits: "AVANTAGES",
+                keyIngredients: "Ingrédients Clés:",
+                application: "Application:",
+                keyBenefits: "Avantages Clés:",
+                contactUs: "CONTACTEZ-NOUS",
+                
+                // About Page
+                aboutTitle: "À PROPOS DE DERMOCÉAN",
+                aboutIntro: "DERMOCÉAN est une marque professionnelle de soins de la peau dédiée à fournir des résultats exceptionnels grâce à la fusion parfaite de la nature et de la science. Nos formulations exploitent la puissance des ingrédients marins et botaniques naturels, soutenus par des recherches cliniques rigoureuses.",
+                philosophyTitle: "Notre Philosophie",
+                philosophyText: "Nous croyons que les soins efficaces de la peau ne nécessitent pas de produits chimiques agressifs ou d'ingrédients synthétiques. En utilisant les actifs naturels les plus purs combinés à la science dermatologique de pointe, nous créons des produits qui offrent des résultats de qualité professionnelle tout en étant doux pour la peau.",
+                commitmentTitle: "Notre Engagement",
+                commitment1: "100% d'Ingrédients Actifs Naturels",
+                commitment2: "Testé Cliniquement et Prouvé",
+                commitment3: "Recommandé par les Dermatologues",
+                commitment4: "Approvisionnement Durable et Éthique",
+                commitment5: "Sans Cruauté et Respectueux de l'Environnement",
+                
+                // Contact Page
+                contactTitle: "CONTACTEZ-NOUS",
+                contactSubtitle: "Nous sommes là pour répondre à toutes vos questions sur nos produits",
+                email: "EMAIL",
+                phone: "TÉLÉPHONE",
+                location: "EMPLACEMENT",
+                worldwideShipping: "Expédition Mondiale",
+                sendMessage: "Envoyez-nous un Message",
+                name: "Nom",
+                message: "Message",
+                sendBtn: "ENVOYER LE MESSAGE",
+                
+                // Footer
+                footerDesc: "Excellence professionnelle en soins de la peau. Approuvé par les dermatologues du monde entier.",
+                quickLinks: "LIENS RAPIDES",
+                contactInfo: "CONTACT",
+                footerCopyright: "© 2025 DERMOCÉAN. Excellence Professionnelle en Soins de la Peau. Tous Droits Réservés.",
+                
+                // Products
+                products: {
+                    1: {
+                        name: "POUDRE DE PEELING",
+                        subtitle: "Système d'Exfoliation Professionnelle",
+                        description: "Système d'exfoliation professionnelle avec extrait d'algues vertes. Élimine les cellules mortes de la peau et favorise le renouvellement cellulaire pour une peau plus lumineuse et plus lisse.",
+                        ingredients: "Extrait d'Algues Vertes, Calendula, Extrait de Camomille, Enzymes Naturelles",
+                        howToUse: "Mélanger avec la Solution de Support de Peeling pour activer. Appliquer sur une peau propre et sèche. Laisser poser 5-10 minutes. Rincer abondamment à l'eau tiède.",
+                        benefits: ["Exfoliation Profonde", "Renouvellement Cellulaire", "Effet Éclaircissant", "Résultats Professionnels"]
+                    },
+                    2: {
+                        name: "SOLUTION DE SUPPORT DE PEELING",
+                        subtitle: "Solution de Traitement Activante",
+                        description: "Solution activante pour la poudre de peeling. Améliore le processus d'exfoliation et prépare la peau pour une absorption optimale des ingrédients actifs.",
+                        ingredients: "Complexe Hydratant, Sels Minéraux, Extraits Botaniques, Équilibrants de pH",
+                        howToUse: "Mélanger avec la Poudre de Peeling selon les instructions. Appliquer uniformément sur le visage et le cou. Suivre avec un hydratant approprié.",
+                        benefits: ["Active le Peeling", "Hydrate la Peau", "pH Équilibré", "Qualité Professionnelle"]
+                    },
+                    3: {
+                        name: "MASQUE APAISANT",
+                        subtitle: "Traitement Apaisant pour Peau Sensible",
+                        description: "Masque apaisant pour les peaux sensibles et réactives. Formulé avec des ingrédients naturels apaisants pour réduire les rougeurs et les irritations.",
+                        ingredients: "Algues Vertes, Calendula, Camomille, Mélisse, Aloe Vera",
+                        howToUse: "Appliquer une couche généreuse sur une peau propre. Laisser poser 15-20 minutes. Rincer à l'eau tiède. Utiliser 2-3 fois par semaine.",
+                        benefits: ["Apaise les Irritations", "Réduit les Rougeurs", "Calme la Peau Sensible", "Ingrédients Naturels"]
+                    }
+                }
+            }
+        };
+
+        let currentLang = 'en';
+
+        // Change Language Function
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            // Update direction for Arabic
+            if (lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+                document.body.style.fontFamily = "'Cairo', 'Inter', sans-serif";
+            } else {
+                document.documentElement.dir = 'ltr';
+                document.body.style.fontFamily = "'Inter', sans-serif";
+            }
+            
+            updatePageContent();
+            showToast(lang === 'en' ? 'Language changed to English' : 
+                      lang === 'ar' ? 'تم تغيير اللغة إلى العربية' : 
+                      'Langue changée en français');
+        }
+
+        // Update All Page Content
+        function updatePageContent() {
+            const t = translations[currentLang];
+            
+            // Update all text elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const keys = key.split('.');
+                let value = t;
+                for (let k of keys) {
+                    value = value[k];
+                }
+                if (value) el.textContent = value;
+            });
+            
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (t[key]) el.placeholder = t[key];
+            });
+            
+            // Reload products with new language
+            loadProducts(currentFilter);
+        }
+
+        // Product Database - DERMOCÉAN Products Only
+        const products = [
+            {
+                id: 1,
+                name: "PEELING POWDER",
+                subtitle: "بودر التقشير",
+                category: "peeling",
+                tags: ["professional", "new"],
+                image: "/mnt/user-data/uploads/Screenshot__22_.png",
+                description: "Professional exfoliation system with green algae extract. Removes dead skin cells and promotes cellular renewal for brighter, smoother skin.",
+                ingredients: "Green Algae Extract, Calendula, Chamomile Extract, Natural Enzymes",
+                howToUse: "Mix with Peeling Support Solution to activate. Apply to clean, dry skin. Leave for 5-10 minutes. Rinse thoroughly with lukewarm water.",
+                benefits: ["Deep Exfoliation", "Cellular Renewal", "Brightening Effect", "Professional Results"]
+            },
+            {
+                id: 2,
+                name: "PEELING SUPPORT SOLUTION",
+                subtitle: "سائل دعم التقشير",
+                category: "peeling",
+                tags: ["professional"],
+                image: "/mnt/user-data/uploads/Screenshot__22_.png",
+                description: "Activating solution for peeling powder. Enhances exfoliation process and prepares skin for optimal absorption of active ingredients.",
+                ingredients: "Hydrating Complex, Mineral Salts, Botanical Extracts, pH Balancers",
+                howToUse: "Mix with Peeling Powder as directed. Apply evenly to face and neck. Follow with appropriate moisturizer.",
+                benefits: ["Activates Peeling", "Hydrates Skin", "pH Balanced", "Professional Grade"]
+            },
+            {
+                id: 3,
+                name: "CALMING MASK",
+                subtitle: "قناع مهدئ",
+                category: "masks",
+                tags: ["bestseller", "sensitive"],
+                image: "/mnt/user-data/uploads/Screenshot__22_.png",
+                description: "Soothing mask for sensitive and reactive skin. Formulated with natural calming ingredients to reduce redness and irritation.",
+                ingredients: "Green Algae, Calendula, Chamomile, Melissa, Aloe Vera",
+                howToUse: "Apply generous layer to clean skin. Leave for 15-20 minutes. Rinse with lukewarm water. Use 2-3 times weekly.",
+                benefits: ["Soothes Irritation", "Reduces Redness", "Calms Sensitive Skin", "Natural Ingredients"]
+            },
+            {
+                id: 4,
+                name: "UVA/UVB SUNSCREEN",
+                subtitle: "واقي شمس",
+                category: "suncare",
+                tags: ["professional", "daily"],
+                image: "/mnt/user-data/uploads/Screenshot__22_.png",
+                description: "Water-based broad spectrum sunscreen. Provides superior protection against harmful UV rays while maintaining skin hydration.",
+                ingredients: "Mineral Filters, Antioxidants, Vitamin E, Hyaluronic Acid",
+                howToUse: "Apply liberally 15 minutes before sun exposure. Reapply every 2 hours and after swimming or sweating.",
+                benefits: ["Broad Spectrum Protection", "Water-Based Formula", "Non-Greasy", "Suitable for Sensitive Skin"]
+            },
+            {
+                id: 5,
+                name: "PERSONAL CREAM",
+                subtitle: "كريم شخصي",
+                category: "creams",
+                tags: ["bestseller"],
+                image: "/mnt/user-data/uploads/Screenshot__23_.png",
+                description: "Intensive care formula for personalized skin treatment. Addresses multiple skin concerns with powerful active ingredients.",
+                ingredients: "Peptide Complex, Hyaluronic Acid, Vitamin C, Natural Oils",
+                howToUse: "Apply morning and evening to clean skin. Massage gently until fully absorbed. Follow with sunscreen during day.",
+                benefits: ["Intensive Hydration", "Anti-Aging", "Brightening", "Multiple Benefits"]
+            },
+            {
+                id: 6,
+                name: "PROFESSIONAL TREATMENT KIT",
+                subtitle: "مجموعة العلاج الاحترافية",
+                category: "professional",
+                tags: ["professional", "new", "complete"],
+                image: "/mnt/user-data/uploads/Screenshot__23_.png",
+                description: "Complete professional treatment system. Includes all essential products for comprehensive skincare regimen.",
+                ingredients: "Complete Professional Range",
+                howToUse: "Follow the professional protocol guide included in the kit. Each product has specific application instructions.",
+                benefits: ["Complete System", "Professional Results", "Comprehensive Care", "Value Set"]
+            },
+            {
+                id: 7,
+                name: "CLINICAL EXCELLENCE SET",
+                subtitle: "مجموعة التميز السريري",
+                category: "professional",
+                tags: ["professional", "clinical"],
+                image: "/mnt/user-data/uploads/Screenshot__23_.png",
+                description: "Clinical-grade skincare set for advanced treatments. Designed for professional use with proven efficacy.",
+                ingredients: "Advanced Clinical Formulations",
+                howToUse: "Professional use recommended. Follow clinical protocol for best results.",
+                benefits: ["Clinical Grade", "Advanced Formulations", "Professional Use", "Proven Results"]
+            },
+            {
+                id: 8,
+                name: "SIGNATURE COLLECTION",
+                subtitle: "المجموعة المميزة",
+                category: "luxury",
+                tags: ["bestseller", "new", "luxury"],
+                image: "/mnt/user-data/uploads/Screenshot__23_.png",
+                description: "Luxury signature collection featuring our most popular products. The ultimate skincare experience.",
+                ingredients: "Premium Selection of Active Ingredients",
+                howToUse: "Complete skincare routine with morning and evening application.",
+                benefits: ["Luxury Experience", "Complete Routine", "Premium Quality", "Best Sellers"]
+            }
+        ];
+
+        let currentFilter = 'all';
+
+        // Initialize
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1000);
+            loadProducts();
+        });
+
+        // Show/Hide Pages
+        function showPage(page) {
+            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+            document.getElementById(page + '-page').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            if (page === 'products') {
+                loadProducts();
+            }
+        }
+
+        // Load Products
+        function loadProducts(filter = 'all') {
+            const grid = document.getElementById('products-grid');
+            if (!grid) return;
+            
+            grid.innerHTML = '';
+            
+            let filtered = products;
+            if (filter !== 'all') {
+                filtered = products.filter(p => 
+                    p.category === filter || p.tags.includes(filter)
+                );
+            }
+
+            filtered.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-image">
+                        ${product.tags.includes('new') ? '<div class="product-badge">NEW</div>' : ''}
+                        <img src="${product.image}" alt="${product.name}">
+                        <div class="product-overlay">
+                            <button class="overlay-btn" onclick="viewProduct(${product.id})">VIEW DETAILS</button>
+                            <button class="overlay-btn" onclick="searchOnline('${product.name}')">SEARCH ONLINE</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-subtitle">${product.subtitle}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            showToast(`Showing ${filtered.length} product(s)`);
+        }
+
+        // Filter Products
+        function filterProducts(filter) {
+            currentFilter = filter;
+            loadProducts(filter);
+            
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // View Product Details
+        function viewProduct(id) {
+            const product = products.find(p => p.id === id);
+            const modal = document.getElementById('product-modal');
+            const detail = document.getElementById('product-detail');
+
+            detail.innerHTML = `
+                <div class="product-detail">
+                    <div class="product-detail-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-detail-info">
+                        <h2>${product.name}</h2>
+                        <p class="subtitle">${product.subtitle}</p>
+                        <p class="description">${product.description}</p>
+
+                        <div class="product-tabs">
+                            <button class="tab-btn active" onclick="showTab(0)">DESCRIPTION</button>
+                            <button class="tab-btn" onclick="showTab(1)">INGREDIENTS</button>
+                            <button class="tab-btn" onclick="showTab(2)">HOW TO USE</button>
+                            <button class="tab-btn" onclick="showTab(3)">BENEFITS</button>
+                        </div>
+
+                        <div class="tab-content active">
+                            <p>${product.description}</p>
+                        </div>
+
+                        <div class="tab-content">
+                            <p><strong>Key Ingredients:</strong></p>
+                            <p>${product.ingredients}</p>
+                        </div>
+
+                        <div class="tab-content">
+                            <p><strong>Application:</strong></p>
+                            <p>${product.howToUse}</p>
+                        </div>
+
+                        <div class="tab-content">
+                            <p><strong>Key Benefits:</strong></p>
+                            <ul>
+                                ${product.benefits.map(b => `<li>${b}</li>`).join('')}
+                            </ul>
+                        </div>
+
+                        <div class="actions">
+                            <button class="btn btn-primary" onclick="searchOnline('${product.name}')">🔍 SEARCH ONLINE</button>
+                            <button class="btn btn-primary" onclick="contactUs('${product.name}')">📧 CONTACT US</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.add('active');
+        }
+
+        // Show Tab
+        function showTab(index) {
+            document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+            });
+            document.querySelectorAll('.tab-content').forEach((content, i) => {
+                content.classList.toggle('active', i === index);
+            });
+        }
+
+        // Search Online
+        function searchOnline(productName) {
+            const query = encodeURIComponent(productName + " DERMOCÉAN skincare");
+            window.open(`https://www.google.com/search?q=${query}`, '_blank');
+            showToast('Opening web search...');
+        }
+
+        // Contact Us
+        function contactUs(productName) {
+            showToast(`Inquiry about: ${productName}`);
+            alert(`Thank you for your interest in ${productName}!\n\nPlease contact us at:\nEmail: info@dermocean.com\nPhone: +1 (555) 123-4567`);
+        }
+
+        // Newsletter Subscribe
+        function subscribe() {
+            const email = document.getElementById('newsletter-email').value;
+            if (email) {
+                showToast('Thank you for subscribing!');
+                document.getElementById('newsletter-email').value = '';
+            } else {
+                showToast('Please enter your email address');
+            }
+        }
+
+        // Send Message
+        function sendMessage(e) {
+            e.preventDefault();
+            showToast('Message sent successfully! We will contact you soon.');
+            e.target.reset();
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('product-modal').classList.remove('active');
+        }
+
+        // Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Mobile Menu
+        function toggleMobileMenu() {
+            const sidebar = document.getElementById('mobile-menu-sidebar');
+            const overlay = document.getElementById('mobile-overlay');
+            sidebar.classList.add('open');
+            overlay.classList.add('active');
+        }
+
+        function closeMobileMenu() {
+            const sidebar = document.getElementById('mobile-menu-sidebar');
+            const overlay = document.getElementById('mobile-overlay');
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+        }
+
+        // Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Scroll Progress Indicator
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.getElementById('scroll-top');
+            const progressCircle = document.getElementById('progress-circle');
+            
+            const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollProgress = (window.scrollY / scrollTotal) * 157;
+            
+            if (progressCircle) {
+                progressCircle.style.strokeDashoffset = 157 - scrollProgress;
+            }
+            
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('show');
+            } else {
+                scrollTop.classList.remove('show');
+            }
+        });
+
+        // WhatsApp Integration
+        function openWhatsApp() {
+            const phone = "1234567890"; // Replace with your WhatsApp number
+            const message = encodeURIComponent("Hello! I'm interested in DERMOCÉAN products.");
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
+
+        // Quick Search Overlay
+        function openSearch() {
+            document.getElementById('search-overlay').classList.add('active');
+            document.getElementById('overlay-search').focus();
+        }
+
+        function closeSearch() {
+            document.getElementById('search-overlay').classList.remove('active');
+        }
+
+        function quickSearch(e) {
+            if (e.key === 'Enter') {
+                const query = e.target.value;
+                showPage('products');
+                document.getElementById('search-input').value = query;
+                searchProducts();
+                closeSearch();
+            } else if (e.key === 'Escape') {
+                closeSearch();
+            }
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeSearch();
+                closeModal();
+                closeMobileMenu();
+            }
+            if (e.ctrlKey && e.key === 'k') {
+                e.preventDefault();
+                openSearch();
+            }
+        });
+
+        // Update language indicator
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            const langNames = { en: 'EN', ar: 'ع', fr: 'FR' };
+            document.getElementById('current-lang').textContent = langNames[lang];
+            
+            if (lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+                document.body.style.fontFamily = "'Cairo', 'Inter', sans-serif";
+            } else {
+                document.documentElement.dir = 'ltr';
+                document.body.style.fontFamily = "'Inter', sans-serif";
+            }
+            
+            updatePageContent();
+            showToast(lang === 'en' ? 'Language changed to English' : 
+                      lang === 'ar' ? 'تم تغيير اللغة إلى العربية' : 
+                      'Langue changée en français');
+        }
+
+        // Close modal on outside click
+        document.getElementById('product-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'product-modal') {
+                closeModal();
+            }
+        });
+
+        console.log('DERMOCÉAN - Professional Skincare Platform Loaded');
+    </script>
+</body>
+</html>
