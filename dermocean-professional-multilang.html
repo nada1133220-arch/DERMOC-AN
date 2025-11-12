@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DERMOCÉAN - Pure Nature Proven Results | العناية الطبيعية الاحترافية بالبشرة</title>
+    <meta name="description" content="DERMOCÉAN - منتجات العناية بالبشرة الطبيعية بتقنية الطحالب البحرية. Pure Nature Proven Results.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-rose: #d4a5a5;
+            --secondary-lavender: #c8b8d8;
+            --soft-pink: #e8d8e8;
+            --cream: #f8f5f2;
+            --dark-text: #3a3a3a;
+            --medium-text: #666;
+            --light-text: #999;
+            --border: #e5d5d5;
+            --white: #ffffff;
+            --gold: #d4af37;
+        }
+
+        body {
+            font-family: 'Lato', 'Tajawal', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        body[dir="rtl"] {
+            font-family: 'Tajawal', 'Lato', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            background: var(--white);
+            padding: 0.5rem;
+            border-radius: 50px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        body[dir="rtl"] .language-switcher {
+            left: 20px;
+            right: auto;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--medium-text);
+            cursor: pointer;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: var(--cream);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-lavender) 100%);
+            color: var(--white);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--cream);
+            border-bottom: 1px solid var(--border);
+            padding: 0.7rem 0;
+        }
+
+        .top-bar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .brand-info, .user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            text-decoration: none;
+            color: var(--medium-text);
+            transition: all 0.3s;
+        }
+
+        .brand-info:hover, .user-info:hover {
+            color: var(--primary-rose);
+            transform: translateY(-2px);
+        }
+
+        .brand-info strong, .user-info strong {
+            color: var(--dark-text);
+            display: block;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.25rem;
+            color: var(--dark-text);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .logo:hover {
+            color: var(--primary-rose);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-menu > li {
+            position: relative;
+        }
+
+        .nav-menu > li > a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-menu > li > a:hover {
+            color: var(--primary-rose);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark-text);
+            transition: all 0.3s;
+        }
+
+        /* Search Bar */
+        .search-section {
+            background: var(--cream);
+            border-bottom: 1px solid var(--border);
+            padding: 1.2rem 2rem;
+        }
+
+        .search-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-box {
+            display: flex;
+            width: 100%;
+            max-width: 650px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            border: none;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 0.8rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-lavender) 100%);
+            color: var(--white);
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .search-box button:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero Slider */
+        .hero {
+            height: 600px;
+            background: linear-gradient(135deg, #f5e8f0 0%, #e8d8e8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(245,232,240,0.95) 0%, rgba(232,216,232,0.85) 100%);
+        }
+
+        .slide-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .slide-text {
+            max-width: 600px;
+        }
+
+        .slide-text h1 {
+            font-size: 4rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-lavender) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .slide-text p {
+            font-size: 1.15rem;
+            color: var(--medium-text);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-lavender) 100%);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(200,168,200,0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(200,168,200,0.4);
+        }
+
+        .slide-image {
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .slide-image img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            border: 2px solid var(--primary-rose);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--primary-rose);
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--medium-text);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            background: var(--cream);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-item h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-rose);
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 5rem 2rem;
+            background: var(--cream);
+        }
+
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-header p {
+            color: var(--medium-text);
+            font-size: 1.1rem;
+        }
+
+        .products-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transform: translateY(-10px);
+        }
+
+        .product-image-container {
+            position: relative;
+            height: 350px;
+            background: var(--cream);
+            overflow: hidden;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 2rem;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--gold);
+            color: var(--white);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        body[dir="rtl"] .product-badge {
+            right: 15px;
+            left: auto;
+        }
+
+        .product-info {
+            padding: 1.8rem;
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--dark-text);
+        }
+
+        .product-category {
+            font-size: 0.9rem;
+            color: var(--medium-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            font-size: 0.85rem;
+            color: var(--light-text);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .product-ingredients {
+            font-size: 0.8rem;
+            color: var(--primary-rose);
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            padding: 2rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: var(--medium-text);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: var(--cream);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        body[dir="rtl"] .contact-item:hover {
+            transform: translateX(-10px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-lavender) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+
+        .contact-form {
+            background: var(--cream);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-text);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-rose);
+            box-shadow: 0 0 0 3px rgba(212,165,165,0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-lavender) 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(200,168,200,0.3);
+        }
+
+        /* Footer */
+        .footer-cta {
+            background: var(--dark-text);
+            padding: 3rem 2rem;
+        }
+
+        .footer-cta-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-cta h3 {
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .footer-cta-btn {
+            padding: 1rem 2.5rem;
+            background: var(--white);
+            color: var(--dark-text);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .footer-cta-btn:hover {
+            background: var(--primary-rose);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background: #2a2a2a;
+            color: #ccc;
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-rose);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: #3a3a3a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-lavender) 100%);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .badges {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .badge {
+            padding: 0.6rem 1.2rem;
+            background: #3a3a3a;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Hidden sections for multi-page effect */
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .slide-content, .about-container, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .slide-image {
+                display: none;
+            }
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            .slide-text h1 {
+                font-size: 2.5rem;
+            }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .footer-cta-inner, .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-lavender) 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        body[dir="rtl"] .scroll-top {
+            left: 30px;
+            right: auto;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="ar">العربية</button>
+        <button class="lang-btn" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="fr">Français</button>
+        <button class="lang-btn" data-lang="tr">Türkçe</button>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <a href="#" class="brand-info">
+                <span>📥</span>
+                <div>
+                    <strong data-i18n="brandBook">Brand Book</strong>
+                    <small data-i18n="download">Download</small>
+                </div>
+            </a>
+            <a href="#" class="user-info">
+                <span>👤</span>
+                <div>
+                    <strong data-i18n="joinNetwork">Join our network</strong>
+                    <small data-i18n="loginRegister">Login | Register</small>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#home" class="logo" onclick="showPage('home')">DERMOCÉAN</a>
+
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="#home" onclick="showPage('home')" data-i18n="navHome">Home</a></li>
+                <li><a href="#about" onclick="showPage('about')" data-i18n="navAbout">About Us</a></li>
+                <li><a href="#products" onclick="showPage('products')" data-i18n="navProducts">Products</a></li>
+                <li><a href="#contact" onclick="showPage('contact')" data-i18n="navContact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Search -->
+    <div class="search-section">
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" data-i18n-placeholder="searchPlaceholder" placeholder="Search for products">
+                <button data-i18n="searchBtn">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Home Page -->
+    <div id="home-page" class="page-section active">
+        <!-- Hero Slider -->
+        <section class="hero">
+            <div class="slide active" style="background-image: url('img1/istockphoto-1927028123-612x612.jpg');">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h1><span class="highlight" data-i18n="heroTitle1">CALMING MASK</span><br><span data-i18n="heroSubtitle1">For Sensitive Skin</span></h1>
+                        <p data-i18n="heroText1">Natural soothing mask with Green Algae, Calendula, Chamomile, and Melissa to calm sensitive skin and protect from harmful rays.</p>
+                        <a href="#products" class="cta-btn" onclick="showPage('products')" data-i18n="discoverProducts">Discover Products</a>
+                    </div>
+                    <div class="slide-image">
+                        <img src="img/ماسك لترطيب وتخفيف تهيج البشرة.png" alt="Calming Mask">
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide" style="background-image: url('img1/istockphoto-1474300446-612x612.jpg');">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h1><span class="highlight" data-i18n="heroTitle2">ALGAE PEELING</span><br><span data-i18n="heroSubtitle2">Professional Treatment</span></h1>
+                        <p data-i18n="heroText2">Advanced green algae peeling powder for professional skin regeneration and renewal with proven scientific results.</p>
+                        <a href="#products" class="cta-btn" onclick="showPage('products')" data-i18n="discoverProducts">Discover Products</a>
+                    </div>
+                    <div class="slide-image">
+                        <img src="img/بودر التقشير.png" alt="Peeling Powder">
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide" style="background-image: url('img1/istockphoto-1629064261-612x612.jpg');">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h1><span class="highlight" data-i18n="heroTitle3">SUN PROTECTION</span><br><span data-i18n="heroSubtitle3">Natural Defense</span></h1>
+                        <p data-i18n="heroText3">Advanced sun protection with natural marine ingredients to protect your skin from harmful UV rays.</p>
+                        <a href="#products" class="cta-btn" onclick="showPage('products')" data-i18n="discoverProducts">Discover Products</a>
+                    </div>
+                    <div class="slide-image">
+                        <img src="img/واقي شمس.png" alt="Sun Protection">
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-dots">
+                <span class="dot active" onclick="showSlide(0)"></span>
+                <span class="dot" onclick="showSlide(1)"></span>
+                <span class="dot" onclick="showSlide(2)"></span>
+            </div>
+        </section>
+
+        <!-- About Preview -->
+        <section class="about-section">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="img1/istockphoto-2165317742-612x612.jpg" alt="DERMOCÉAN">
+                </div>
+                <div class="about-content">
+                    <h2 data-i18n="aboutTitle">About DERMOCÉAN</h2>
+                    <p data-i18n="aboutText1">DERMOCÉAN is a premium skincare brand dedicated to harnessing the power of marine ingredients, particularly green algae, to create revolutionary skincare solutions.</p>
+                    <p data-i18n="aboutText2">With years of research and scientific expertise, we've developed unique formulations that combine pure natural ingredients with proven clinical results.</p>
+                    <a href="#about" class="cta-btn" onclick="showPage('about')" data-i18n="learnMore">Learn More</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about-page" class="page-section">
+        <section class="about-section">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="img1/istockphoto-1309405105-612x612.jpg" alt="DERMOCÉAN Story">
+                </div>
+                <div class="about-content">
+                    <h2 data-i18n="ourStoryTitle">Our Story</h2>
+                    <p data-i18n="ourStoryText1">DERMOCÉAN was born from a passion for natural beauty and marine science. Our founders discovered the incredible regenerative properties of green algae and dedicated themselves to creating a skincare line that harnesses this natural power.</p>
+                    <p data-i18n="ourStoryText2">Every product is developed with meticulous attention to detail, combining traditional knowledge with modern dermatological science. We believe in pure, natural ingredients that deliver visible results.</p>
+                    <p data-i18n="ourStoryText3">Today, DERMOCÉAN is trusted by skincare professionals worldwide, from luxury spas to dermatology clinics, for our commitment to quality, purity, and proven effectiveness.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" style="background: var(--cream);">
+            <div class="section-header">
+                <h2 data-i18n="whyChooseTitle">Why Choose DERMOCÉAN</h2>
+                <p data-i18n="whyChooseSubtitle">Pure Nature, Proven Results</p>
+            </div>
+            <div class="about-features" style="max-width: 1400px; margin: 0 auto;">
+                <div class="feature-item">
+                    <div class="feature-icon">🌊</div>
+                    <h4 data-i18n="feature1Title">Marine Science</h4>
+                    <p data-i18n="feature1Text">Advanced formulations using pure green algae extracts from pristine marine environments.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🧪</div>
+                    <h4 data-i18n="feature2Title">Clinically Tested</h4>
+                    <p data-i18n="feature2Text">All products are dermatologically tested and clinically proven for safety and effectiveness.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌿</div>
+                    <h4 data-i18n="feature3Title">100% Natural</h4>
+                    <p data-i18n="feature3Text">Pure natural ingredients, free from parabens, sulfates, and harmful chemicals.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✨</div>
+                    <h4 data-i18n="feature4Title">Visible Results</h4>
+                    <p data-i18n="feature4Text">Experience transformative results with our scientifically-backed formulations.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👩‍⚕️</div>
+                    <h4 data-i18n="feature5Title">Professional Grade</h4>
+                    <p data-i18n="feature5Text">Trusted by skincare professionals and dermatologists worldwide.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌍</div>
+                    <h4 data-i18n="feature6Title">Sustainable</h4>
+                    <p data-i18n="feature6Text">Committed to environmental sustainability and ethical sourcing.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Products Page -->
+    <div id="products-page" class="page-section">
+        <section class="products-section">
+            <div class="section-header">
+                <h2 data-i18n="productsTitle">Our Products</h2>
+                <p data-i18n="productsSubtitle">Pure Nature Proven Results</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1: Peeling Powder -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="product-badge" data-i18n="professional">Professional</span>
+                        <img src="img/بودر التقشير.png" class="product-img" alt="Peeling Powder">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-i18n="product1Name">Green Algae Peeling Powder</h3>
+                        <p class="product-category" data-i18n="product1Category">Professional Treatment</p>
+                        <p class="product-description" data-i18n="product1Desc">Advanced green algae peeling powder for professional skin regeneration. Stimulates cellular renewal and collagen production for visible rejuvenation.</p>
+                        <p class="product-ingredients" data-i18n="product1Ingredients">🌱 Green Algae, Calendula, Chamomile, Natural Spicules</p>
+                    </div>
+                </div>
+
+                <!-- Product 2: Support Liquid -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="product-badge" data-i18n="professional">Professional</span>
+                        <img src="img/سائل دعم البودر.png" class="product-img" alt="Support Liquid">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-i18n="product2Name">Powder Support Liquid</h3>
+                        <p class="product-category" data-i18n="product2Category">Treatment Enhancer</p>
+                        <p class="product-description" data-i18n="product2Desc">Essential support liquid that activates and enhances the peeling powder treatment. Creates optimal conditions for deep penetration and maximum effectiveness.</p>
+                        <p class="product-ingredients" data-i18n="product2Ingredients">💧 Purified Marine Water, Mineral Complex, pH Balancers</p>
+                    </div>
+                </div>
+
+                <!-- Product 3: Calming Mask -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="product-badge" data-i18n="bestseller">Best Seller</span>
+                        <img src="img/ماسك لترطيب وتخفيف تهيج البشرة.png" class="product-img" alt="Calming Mask">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-i18n="product3Name">Hydrating Calming Mask</h3>
+                        <p class="product-category" data-i18n="product3Category">Sensitive Skin Care</p>
+                        <p class="product-description" data-i18n="product3Desc">Intensive hydrating mask that soothes irritation and calms sensitive skin. Enriched with natural botanicals for deep nourishment and protection.</p>
+                        <p class="product-ingredients" data-i18n="product3Ingredients">🌿 Green Algae, Calendula, Chamomile, Melissa, Aloe Vera</p>
+                    </div>
+                </div>
+
+                <!-- Product 4: Sun Protection -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="product-badge" data-i18n="essential">Essential</span>
+                        <img src="img/واقي شمس.png" class="product-img" alt="Sun Protection">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-i18n="product4Name">Marine Sun Protection</h3>
+                        <p class="product-category" data-i18n="product4Category">Daily Protection</p>
+                        <p class="product-description" data-i18n="product4Desc">Advanced broad-spectrum sun protection combining natural marine extracts with effective UV filters. Lightweight formula that protects while nourishing your skin.</p>
+                        <p class="product-ingredients" data-i18n="product4Ingredients">☀️ Marine Algae Complex, UV Filters, Vitamin E, Antioxidants</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Treatment Protocol Section -->
+        <section class="about-section" style="background: var(--white);">
+            <div class="section-header">
+                <h2 data-i18n="treatmentTitle">Professional Treatment Protocol</h2>
+                <p data-i18n="treatmentSubtitle">The DERMOCÉAN Algae Peeling Experience</p>
+            </div>
+            <div class="about-features" style="max-width: 1400px; margin: 0 auto;">
+                <div class="feature-item">
+                    <div class="feature-icon">1️⃣</div>
+                    <h4 data-i18n="step1Title">Cleansing</h4>
+                    <p data-i18n="step1Text">Deep cleansing to prepare skin for optimal treatment absorption.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">2️⃣</div>
+                    <h4 data-i18n="step2Title">Application</h4>
+                    <p data-i18n="step2Text">Professional application of algae peeling powder with support liquid.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">3️⃣</div>
+                    <h4 data-i18n="step3Title">Activation</h4>
+                    <p data-i18n="step3Text">Natural spicules activate cellular renewal and collagen production.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">4️⃣</div>
+                    <h4 data-i18n="step4Title">Calming</h4>
+                    <p data-i18n="step4Text">Soothing mask application to calm and hydrate treated skin.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact-page" class="page-section">
+        <section class="contact-section">
+            <div class="section-header">
+                <h2 data-i18n="contactTitle">Get In Touch</h2>
+                <p data-i18n="contactSubtitle">We'd love to hear from you</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2 data-i18n="contactInfoTitle">Contact Information</h2>
+                    <p data-i18n="contactInfoText">Have questions about our products or want to become a DERMOCÉAN partner? Reach out to us and our team will respond within 24 hours.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <strong data-i18n="emailLabel">Email</strong>
+                                <p>info@dermocean.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div>
+                                <strong data-i18n="phoneLabel">Phone</strong>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <strong data-i18n="addressLabel">Address</strong>
+                                <p data-i18n="addressText">123 Marine Boulevard, Coastal City</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🕒</div>
+                            <div>
+                                <strong data-i18n="hoursLabel">Business Hours</strong>
+                                <p data-i18n="hoursText">Mon - Fri: 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label data-i18n="nameLabel">Your Name</label>
+                            <input type="text" name="name" required data-i18n-placeholder="namePlaceholder" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="emailFormLabel">Email Address</label>
+                            <input type="email" name="email" required data-i18n-placeholder="emailPlaceholder" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="subjectLabel">Subject</label>
+                            <input type="text" name="subject" required data-i18n-placeholder="subjectPlaceholder" placeholder="What is this about?">
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="messageLabel">Message</label>
+                            <textarea name="message" required data-i18n-placeholder="messagePlaceholder" placeholder="Your message..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" data-i18n="sendMessage">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer CTA -->
+    <div class="footer-cta">
+        <div class="footer-cta-inner">
+            <h3><span data-i18n="footerCtaTitle">NEED HELP?</span> <span style="font-weight: 300;" data-i18n="footerCtaSubtitle">Our representatives can guide you</span></h3>
+            <a href="#contact" onclick="showPage('contact')" class="footer-cta-btn" data-i18n="contactUs">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>DERMOCÉAN</h4>
+                <ul>
+                    <li><a href="#about" onclick="showPage('about')" data-i18n="footerAbout">Who we are</a></li>
+                    <li><a href="#products" onclick="showPage('products')" data-i18n="footerProducts">Our Products</a></li>
+                    <li><a href="#" data-i18n="footerScience">Our Science</a></li>
+                    <li><a href="#contact" onclick="showPage('contact')" data-i18n="footerConsultation">Skin Specialist Consultation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4 data-i18n="footerCustomerService">Customer Service</h4>
+                <ul>
+                    <li><a href="#" data-i18n="footerTerms">Terms & Conditions</a></li>
+                    <li><a href="#" data-i18n="footerPrivacy">Privacy Policy</a></li>
+                    <li><a href="#" data-i18n="footerShipping">Shipping & Delivery</a></li>
+                    <li><a href="#" data-i18n="footerReturns">Returns & Exchanges</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4 data-i18n="footerInformation">Information</h4>
+                <ul>
+                    <li><a href="#" data-i18n="footerHelp">Help Center</a></li>
+                    <li><a href="#" data-i18n="footerFaq">F.A.Q</a></li>
+                    <li><a href="#contact" onclick="showPage('contact')" data-i18n="footerContact">Contact Us</a></li>
+                    <li><a href="#" data-i18n="footerTrack">Track Your Order</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4 data-i18n="footerFollow">Follow Us</h4>
+                <p>@dermoceanofficial</p>
+                <div class="social-icons">
+                    <div class="social-icon">📘</div>
+                    <div class="social-icon">📷</div>
+                    <div class="social-icon">🔗</div>
+                    <div class="social-icon">📺</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 DERMOCÉAN - <span data-i18n="footerTagline">Pure Nature Proven Results</span> | <span data-i18n="footerRights">All Rights Reserved</span></p>
+            <div class="badges">
+                <div class="badge">🏅 <span data-i18n="badgeTested">Dermatologically Tested</span></div>
+                <div class="badge">🌿 <span data-i18n="badgeNatural">100% Natural Ingredients</span></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Translations
+        const translations = {
+            ar: {
+                // Top Bar
+                brandBook: "كتيب العلامة التجارية",
+                download: "تحميل",
+                joinNetwork: "انضم إلى شبكتنا",
+                loginRegister: "تسجيل دخول | تسجيل",
+
+                // Navigation
+                navHome: "الرئيسية",
+                navAbout: "من نحن",
+                navProducts: "المنتجات",
+                navContact: "اتصل بنا",
+
+                // Search
+                searchPlaceholder: "ابحث عن المنتجات",
+                searchBtn: "بحث",
+
+                // Hero
+                heroTitle1: "قناع مهدئ",
+                heroSubtitle1: "للبشرة الحساسة",
+                heroText1: "قناع مهدئ طبيعي مع الطحالب الخضراء، الكالندولا، البابونج، والميليسا لتهدئة البشرة الحساسة وحمايتها من الأشعة الضارة.",
+                heroTitle2: "تقشير الطحالب",
+                heroSubtitle2: "علاج احترافي",
+                heroText2: "بودرة تقشير الطحالب الخضراء المتقدمة لتجديد البشرة الاحترافي مع نتائج علمية مثبتة.",
+                heroTitle3: "حماية من الشمس",
+                heroSubtitle3: "دفاع طبيعي",
+                heroText3: "حماية متقدمة من الشمس مع مكونات بحرية طبيعية لحماية بشرتك من الأشعة فوق البنفسجية الضارة.",
+                discoverProducts: "اكتشف المنتجات",
+
+                // About
+                aboutTitle: "عن DERMOCÉAN",
+                aboutText1: "DERMOCÉAN هي علامة تجارية فاخرة للعناية بالبشرة مكرسة لاستغلال قوة المكونات البحرية، وخاصة الطحالب الخضراء، لإنشاء حلول ثورية للعناية بالبشرة.",
+                aboutText2: "مع سنوات من البحث والخبرة العلمية، قمنا بتطوير تركيبات فريدة تجمع بين المكونات الطبيعية النقية والنتائج السريرية المثبتة.",
+                learnMore: "اعرف المزيد",
+
+                ourStoryTitle: "قصتنا",
+                ourStoryText1: "ولدت DERMOCÉAN من شغف بالجمال الطبيعي وعلوم البحار. اكتشف مؤسسونا الخصائص التجديدية المذهلة للطحالب الخضراء وكرسوا أنفسهم لإنشاء خط عناية بالبشرة يسخر هذه القوة الطبيعية.",
+                ourStoryText2: "يتم تطوير كل منتج باهتمام دقيق بالتفاصيل، يجمع بين المعرفة التقليدية وعلم الأمراض الجلدية الحديث. نحن نؤمن بالمكونات الطبيعية النقية التي تحقق نتائج مرئية.",
+                ourStoryText3: "اليوم، DERMOCÉAN موثوق به من قبل محترفي العناية بالبشرة في جميع أنحاء العالم، من المنتجعات الفاخرة إلى عيادات الأمراض الجلدية، لالتزامنا بالجودة والنقاء والفعالية المثبتة.",
+
+                whyChooseTitle: "لماذا تختار DERMOCÉAN",
+                whyChooseSubtitle: "طبيعة نقية، نتائج مثبتة",
+
+                feature1Title: "علوم البحار",
+                feature1Text: "تركيبات متقدمة باستخدام مستخلصات الطحالب الخضراء النقية من البيئات البحرية النقية.",
+                feature2Title: "مختبر سريرياً",
+                feature2Text: "جميع المنتجات مختبرة جلدياً ومثبتة سريرياً للسلامة والفعالية.",
+                feature3Title: "100٪ طبيعي",
+                feature3Text: "مكونات طبيعية نقية، خالية من البارابين والكبريتات والمواد الكيميائية الضارة.",
+                feature4Title: "نتائج مرئية",
+                feature4Text: "اختبر نتائج تحويلية مع تركيباتنا المدعومة علمياً.",
+                feature5Title: "درجة احترافية",
+                feature5Text: "موثوق به من قبل محترفي العناية بالبشرة وأطباء الجلدية في جميع أنحاء العالم.",
+                feature6Title: "مستدام",
+                feature6Text: "ملتزمون بالاستدامة البيئية والمصادر الأخلاقية.",
+
+                // Products
+                productsTitle: "منتجاتنا",
+                productsSubtitle: "طبيعة نقية نتائج مثبتة",
+
+                professional: "احترافي",
+                bestseller: "الأكثر مبيعاً",
+                essential: "أساسي",
+
+                product1Name: "بودرة تقشير الطحالب الخضراء",
+                product1Category: "علاج احترافي",
+                product1Desc: "بودرة تقشير الطحالب الخضراء المتقدمة لتجديد البشرة الاحترافي. تحفز التجديد الخلوي وإنتاج الكولاجين لتجديد مرئي.",
+                product1Ingredients: "🌱 طحالب خضراء، كالندولا، بابونج، إبر طبيعية",
+
+                product2Name: "سائل دعم البودرة",
+                product2Category: "معزز العلاج",
+                product2Desc: "سائل دعم أساسي ينشط ويعزز علاج بودرة التقشير. يخلق ظروف مثالية للاختراق العميق والفعالية القصوى.",
+                product2Ingredients: "💧 ماء بحري منقى، مركب معدني، موازنات الحموضة",
+
+                product3Name: "قناع الترطيب المهدئ",
+                product3Category: "العناية بالبشرة الحساسة",
+                product3Desc: "قناع ترطيب مكثف يهدئ التهيج ويهدئ البشرة الحساسة. مُثرى بالمستخلصات النباتية الطبيعية للتغذية العميقة والحماية.",
+                product3Ingredients: "🌿 طحالب خضراء، كالندولا، بابونج، ميليسا، صبار",
+
+                product4Name: "حماية بحرية من الشمس",
+                product4Category: "حماية يومية",
+                product4Desc: "حماية متقدمة واسعة النطاق من الشمس تجمع بين المستخلصات البحرية الطبيعية ومرشحات الأشعة فوق البنفسجية الفعالة. تركيبة خفيفة تحمي مع تغذية بشرتك.",
+                product4Ingredients: "☀️ مركب الطحالب البحرية، مرشحات الأشعة فوق البنفسجية، فيتامين E، مضادات الأكسدة",
+
+                treatmentTitle: "بروتوكول العلاج الاحترافي",
+                treatmentSubtitle: "تجربة تقشير الطحالب DERMOCÉAN",
+
+                step1Title: "التنظيف",
+                step1Text: "تنظيف عميق لإعداد البشرة للامتصاص الأمثل للعلاج.",
+                step2Title: "التطبيق",
+                step2Text: "تطبيق احترافي لبودرة تقشير الطحالب مع سائل الدعم.",
+                step3Title: "التنشيط",
+                step3Text: "الإبر الطبيعية تنشط التجديد الخلوي وإنتاج الكولاجين.",
+                step4Title: "التهدئة",
+                step4Text: "تطبيق القناع المهدئ لتهدئة وترطيب البشرة المعالجة.",
+
+                // Contact
+                contactTitle: "تواصل معنا",
+                contactSubtitle: "نود أن نسمع منك",
+                contactInfoTitle: "معلومات الاتصال",
+                contactInfoText: "هل لديك أسئلة حول منتجاتنا أو ترغب في أن تصبح شريكاً لـ DERMOCÉAN؟ تواصل معنا وسيرد فريقنا في غضون 24 ساعة.",
+
+                emailLabel: "البريد الإلكتروني",
+                phoneLabel: "الهاتف",
+                addressLabel: "العنوان",
+                addressText: "123 شارع مارين، المدينة الساحلية",
+                hoursLabel: "ساعات العمل",
+                hoursText: "الإثنين - الجمعة: 9:00 صباحاً - 6:00 مساءً",
+
+                nameLabel: "اسمك",
+                namePlaceholder: "أدخل اسمك",
+                emailFormLabel: "عنوان البريد الإلكتروني",
+                emailPlaceholder: "أدخل بريدك الإلكتروني",
+                subjectLabel: "الموضوع",
+                subjectPlaceholder: "ما هو موضوع رسالتك؟",
+                messageLabel: "الرسالة",
+                messagePlaceholder: "رسالتك...",
+                sendMessage: "إرسال الرسالة",
+
+                // Footer
+                footerCtaTitle: "هل تحتاج مساعدة؟",
+                footerCtaSubtitle: "ممثلونا يمكنهم إرشادك",
+                contactUs: "اتصل بنا",
+
+                footerAbout: "من نحن",
+                footerProducts: "منتجاتنا",
+                footerScience: "علومنا",
+                footerConsultation: "استشارة أخصائي البشرة",
+
+                footerCustomerService: "خدمة العملاء",
+                footerTerms: "الشروط والأحكام",
+                footerPrivacy: "سياسة الخصوصية",
+                footerShipping: "الشحن والتوصيل",
+                footerReturns: "الإرجاع والاستبدال",
+
+                footerInformation: "معلومات",
+                footerHelp: "مركز المساعدة",
+                footerFaq: "الأسئلة الشائعة",
+                footerContact: "اتصل بنا",
+                footerTrack: "تتبع طلبك",
+
+                footerFollow: "تابعنا",
+                footerTagline: "طبيعة نقية نتائج مثبتة",
+                footerRights: "جميع الحقوق محفوظة",
+
+                badgeTested: "مختبر جلدياً",
+                badgeNatural: "100٪ مكونات طبيعية"
+            },
+            en: {
+                // Top Bar
+                brandBook: "Brand Book",
+                download: "Download",
+                joinNetwork: "Join our network",
+                loginRegister: "Login | Register",
+
+                // Navigation
+                navHome: "Home",
+                navAbout: "About Us",
+                navProducts: "Products",
+                navContact: "Contact",
+
+                // Search
+                searchPlaceholder: "Search for products",
+                searchBtn: "Search",
+
+                // Hero
+                heroTitle1: "CALMING MASK",
+                heroSubtitle1: "For Sensitive Skin",
+                heroText1: "Natural soothing mask with Green Algae, Calendula, Chamomile, and Melissa to calm sensitive skin and protect from harmful rays.",
+                heroTitle2: "ALGAE PEELING",
+                heroSubtitle2: "Professional Treatment",
+                heroText2: "Advanced green algae peeling powder for professional skin regeneration and renewal with proven scientific results.",
+                heroTitle3: "SUN PROTECTION",
+                heroSubtitle3: "Natural Defense",
+                heroText3: "Advanced sun protection with natural marine ingredients to protect your skin from harmful UV rays.",
+                discoverProducts: "Discover Products",
+
+                // About
+                aboutTitle: "About DERMOCÉAN",
+                aboutText1: "DERMOCÉAN is a premium skincare brand dedicated to harnessing the power of marine ingredients, particularly green algae, to create revolutionary skincare solutions.",
+                aboutText2: "With years of research and scientific expertise, we've developed unique formulations that combine pure natural ingredients with proven clinical results.",
+                learnMore: "Learn More",
+
+                ourStoryTitle: "Our Story",
+                ourStoryText1: "DERMOCÉAN was born from a passion for natural beauty and marine science. Our founders discovered the incredible regenerative properties of green algae and dedicated themselves to creating a skincare line that harnesses this natural power.",
+                ourStoryText2: "Every product is developed with meticulous attention to detail, combining traditional knowledge with modern dermatological science. We believe in pure, natural ingredients that deliver visible results.",
+                ourStoryText3: "Today, DERMOCÉAN is trusted by skincare professionals worldwide, from luxury spas to dermatology clinics, for our commitment to quality, purity, and proven effectiveness.",
+
+                whyChooseTitle: "Why Choose DERMOCÉAN",
+                whyChooseSubtitle: "Pure Nature, Proven Results",
+
+                feature1Title: "Marine Science",
+                feature1Text: "Advanced formulations using pure green algae extracts from pristine marine environments.",
+                feature2Title: "Clinically Tested",
+                feature2Text: "All products are dermatologically tested and clinically proven for safety and effectiveness.",
+                feature3Title: "100% Natural",
+                feature3Text: "Pure natural ingredients, free from parabens, sulfates, and harmful chemicals.",
+                feature4Title: "Visible Results",
+                feature4Text: "Experience transformative results with our scientifically-backed formulations.",
+                feature5Title: "Professional Grade",
+                feature5Text: "Trusted by skincare professionals and dermatologists worldwide.",
+                feature6Title: "Sustainable",
+                feature6Text: "Committed to environmental sustainability and ethical sourcing.",
+
+                // Products
+                productsTitle: "Our Products",
+                productsSubtitle: "Pure Nature Proven Results",
+
+                professional: "Professional",
+                bestseller: "Best Seller",
+                essential: "Essential",
+
+                product1Name: "Green Algae Peeling Powder",
+                product1Category: "Professional Treatment",
+                product1Desc: "Advanced green algae peeling powder for professional skin regeneration. Stimulates cellular renewal and collagen production for visible rejuvenation.",
+                product1Ingredients: "🌱 Green Algae, Calendula, Chamomile, Natural Spicules",
+
+                product2Name: "Powder Support Liquid",
+                product2Category: "Treatment Enhancer",
+                product2Desc: "Essential support liquid that activates and enhances the peeling powder treatment. Creates optimal conditions for deep penetration and maximum effectiveness.",
+                product2Ingredients: "💧 Purified Marine Water, Mineral Complex, pH Balancers",
+
+                product3Name: "Hydrating Calming Mask",
+                product3Category: "Sensitive Skin Care",
+                product3Desc: "Intensive hydrating mask that soothes irritation and calms sensitive skin. Enriched with natural botanicals for deep nourishment and protection.",
+                product3Ingredients: "🌿 Green Algae, Calendula, Chamomile, Melissa, Aloe Vera",
+
+                product4Name: "Marine Sun Protection",
+                product4Category: "Daily Protection",
+                product4Desc: "Advanced broad-spectrum sun protection combining natural marine extracts with effective UV filters. Lightweight formula that protects while nourishing your skin.",
+                product4Ingredients: "☀️ Marine Algae Complex, UV Filters, Vitamin E, Antioxidants",
+
+                treatmentTitle: "Professional Treatment Protocol",
+                treatmentSubtitle: "The DERMOCÉAN Algae Peeling Experience",
+
+                step1Title: "Cleansing",
+                step1Text: "Deep cleansing to prepare skin for optimal treatment absorption.",
+                step2Title: "Application",
+                step2Text: "Professional application of algae peeling powder with support liquid.",
+                step3Title: "Activation",
+                step3Text: "Natural spicules activate cellular renewal and collagen production.",
+                step4Title: "Calming",
+                step4Text: "Soothing mask application to calm and hydrate treated skin.",
+
+                // Contact
+                contactTitle: "Get In Touch",
+                contactSubtitle: "We'd love to hear from you",
+                contactInfoTitle: "Contact Information",
+                contactInfoText: "Have questions about our products or want to become a DERMOCÉAN partner? Reach out to us and our team will respond within 24 hours.",
+
+                emailLabel: "Email",
+                phoneLabel: "Phone",
+                addressLabel: "Address",
+                addressText: "123 Marine Boulevard, Coastal City",
+                hoursLabel: "Business Hours",
+                hoursText: "Mon - Fri: 9:00 AM - 6:00 PM",
+
+                nameLabel: "Your Name",
+                namePlaceholder: "Enter your name",
+                emailFormLabel: "Email Address",
+                emailPlaceholder: "Enter your email",
+                subjectLabel: "Subject",
+                subjectPlaceholder: "What is this about?",
+                messageLabel: "Message",
+                messagePlaceholder: "Your message...",
+                sendMessage: "Send Message",
+
+                // Footer
+                footerCtaTitle: "NEED HELP?",
+                footerCtaSubtitle: "Our representatives can guide you",
+                contactUs: "Contact Us",
+
+                footerAbout: "Who we are",
+                footerProducts: "Our Products",
+                footerScience: "Our Science",
+                footerConsultation: "Skin Specialist Consultation",
+
+                footerCustomerService: "Customer Service",
+                footerTerms: "Terms & Conditions",
+                footerPrivacy: "Privacy Policy",
+                footerShipping: "Shipping & Delivery",
+                footerReturns: "Returns & Exchanges",
+
+                footerInformation: "Information",
+                footerHelp: "Help Center",
+                footerFaq: "F.A.Q",
+                footerContact: "Contact Us",
+                footerTrack: "Track Your Order",
+
+                footerFollow: "Follow Us",
+                footerTagline: "Pure Nature Proven Results",
+                footerRights: "All Rights Reserved",
+
+                badgeTested: "Dermatologically Tested",
+                badgeNatural: "100% Natural Ingredients"
+            },
+            fr: {
+                // Top Bar
+                brandBook: "Livre de Marque",
+                download: "Télécharger",
+                joinNetwork: "Rejoignez notre réseau",
+                loginRegister: "Connexion | S'inscrire",
+
+                // Navigation
+                navHome: "Accueil",
+                navAbout: "À Propos",
+                navProducts: "Produits",
+                navContact: "Contact",
+
+                // Search
+                searchPlaceholder: "Rechercher des produits",
+                searchBtn: "Rechercher",
+
+                // Hero
+                heroTitle1: "MASQUE APAISANT",
+                heroSubtitle1: "Pour Peaux Sensibles",
+                heroText1: "Masque apaisant naturel avec Algues Vertes, Calendula, Camomille et Mélisse pour calmer les peaux sensibles et protéger des rayons nocifs.",
+                heroTitle2: "PEELING AUX ALGUES",
+                heroSubtitle2: "Traitement Professionnel",
+                heroText2: "Poudre de peeling aux algues vertes avancée pour la régénération professionnelle de la peau avec des résultats scientifiques prouvés.",
+                heroTitle3: "PROTECTION SOLAIRE",
+                heroSubtitle3: "Défense Naturelle",
+                heroText3: "Protection solaire avancée avec des ingrédients marins naturels pour protéger votre peau des rayons UV nocifs.",
+                discoverProducts: "Découvrir les Produits",
+
+                // About
+                aboutTitle: "À Propos de DERMOCÉAN",
+                aboutText1: "DERMOCÉAN est une marque de soins de la peau haut de gamme dédiée à exploiter le pouvoir des ingrédients marins, en particulier les algues vertes, pour créer des solutions de soins révolutionnaires.",
+                aboutText2: "Avec des années de recherche et d'expertise scientifique, nous avons développé des formulations uniques qui combinent des ingrédients naturels purs avec des résultats cliniques prouvés.",
+                learnMore: "En Savoir Plus",
+
+                ourStoryTitle: "Notre Histoire",
+                ourStoryText1: "DERMOCÉAN est né d'une passion pour la beauté naturelle et les sciences marines. Nos fondateurs ont découvert les incroyables propriétés régénératrices des algues vertes et se sont consacrés à créer une gamme de soins qui exploite ce pouvoir naturel.",
+                ourStoryText2: "Chaque produit est développé avec une attention méticuleuse aux détails, combinant les connaissances traditionnelles avec la science dermatologique moderne. Nous croyons en des ingrédients naturels purs qui donnent des résultats visibles.",
+                ourStoryText3: "Aujourd'hui, DERMOCÉAN est approuvé par les professionnels des soins de la peau du monde entier, des spas de luxe aux cliniques de dermatologie, pour notre engagement envers la qualité, la pureté et l'efficacité prouvée.",
+
+                whyChooseTitle: "Pourquoi Choisir DERMOCÉAN",
+                whyChooseSubtitle: "Nature Pure, Résultats Prouvés",
+
+                feature1Title: "Science Marine",
+                feature1Text: "Formulations avancées utilisant des extraits d'algues vertes pures provenant d'environnements marins pristins.",
+                feature2Title: "Testé Cliniquement",
+                feature2Text: "Tous les produits sont testés dermatologiquement et cliniquement prouvés pour la sécurité et l'efficacité.",
+                feature3Title: "100% Naturel",
+                feature3Text: "Ingrédients naturels purs, sans parabènes, sulfates et produits chimiques nocifs.",
+                feature4Title: "Résultats Visibles",
+                feature4Text: "Découvrez des résultats transformateurs avec nos formulations scientifiquement prouvées.",
+                feature5Title: "Qualité Professionnelle",
+                feature5Text: "Approuvé par les professionnels des soins de la peau et dermatologues du monde entier.",
+                feature6Title: "Durable",
+                feature6Text: "Engagé pour la durabilité environnementale et l'approvisionnement éthique.",
+
+                // Products
+                productsTitle: "Nos Produits",
+                productsSubtitle: "Nature Pure Résultats Prouvés",
+
+                professional: "Professionnel",
+                bestseller: "Meilleure Vente",
+                essential: "Essentiel",
+
+                product1Name: "Poudre de Peeling aux Algues Vertes",
+                product1Category: "Traitement Professionnel",
+                product1Desc: "Poudre de peeling aux algues vertes avancée pour la régénération professionnelle de la peau. Stimule le renouvellement cellulaire et la production de collagène pour une régénération visible.",
+                product1Ingredients: "🌱 Algues Vertes, Calendula, Camomille, Spicules Naturels",
+
+                product2Name: "Liquide de Support de Poudre",
+                product2Category: "Amplificateur de Traitement",
+                product2Desc: "Liquide de support essentiel qui active et améliore le traitement de la poudre de peeling. Crée des conditions optimales pour une pénétration profonde et une efficacité maximale.",
+                product2Ingredients: "💧 Eau Marine Purifiée, Complexe Minéral, Équilibreurs de pH",
+
+                product3Name: "Masque Hydratant Apaisant",
+                product3Category: "Soin Peau Sensible",
+                product3Desc: "Masque hydratant intensif qui apaise l'irritation et calme la peau sensible. Enrichi en extraits botaniques naturels pour une nutrition profonde et une protection.",
+                product3Ingredients: "🌿 Algues Vertes, Calendula, Camomille, Mélisse, Aloe Vera",
+
+                product4Name: "Protection Solaire Marine",
+                product4Category: "Protection Quotidienne",
+                product4Desc: "Protection solaire à large spectre avancée combinant des extraits marins naturels avec des filtres UV efficaces. Formule légère qui protège tout en nourrissant votre peau.",
+                product4Ingredients: "☀️ Complexe d'Algues Marines, Filtres UV, Vitamine E, Antioxydants",
+
+                treatmentTitle: "Protocole de Traitement Professionnel",
+                treatmentSubtitle: "L'Expérience de Peeling aux Algues DERMOCÉAN",
+
+                step1Title: "Nettoyage",
+                step1Text: "Nettoyage en profondeur pour préparer la peau à une absorption optimale du traitement.",
+                step2Title: "Application",
+                step2Text: "Application professionnelle de la poudre de peeling aux algues avec liquide de support.",
+                step3Title: "Activation",
+                step3Text: "Les spicules naturels activent le renouvellement cellulaire et la production de collagène.",
+                step4Title: "Apaisement",
+                step4Text: "Application de masque apaisant pour calmer et hydrater la peau traitée.",
+
+                // Contact
+                contactTitle: "Contactez-Nous",
+                contactSubtitle: "Nous aimerions avoir de vos nouvelles",
+                contactInfoTitle: "Informations de Contact",
+                contactInfoText: "Vous avez des questions sur nos produits ou souhaitez devenir partenaire DERMOCÉAN? Contactez-nous et notre équipe répondra dans les 24 heures.",
+
+                emailLabel: "E-mail",
+                phoneLabel: "Téléphone",
+                addressLabel: "Adresse",
+                addressText: "123 Boulevard Marine, Ville Côtière",
+                hoursLabel: "Heures d'Ouverture",
+                hoursText: "Lun - Ven: 9h00 - 18h00",
+
+                nameLabel: "Votre Nom",
+                namePlaceholder: "Entrez votre nom",
+                emailFormLabel: "Adresse E-mail",
+                emailPlaceholder: "Entrez votre e-mail",
+                subjectLabel: "Sujet",
+                subjectPlaceholder: "De quoi s'agit-il?",
+                messageLabel: "Message",
+                messagePlaceholder: "Votre message...",
+                sendMessage: "Envoyer le Message",
+
+                // Footer
+                footerCtaTitle: "BESOIN D'AIDE?",
+                footerCtaSubtitle: "Nos représentants peuvent vous guider",
+                contactUs: "Contactez-Nous",
+
+                footerAbout: "Qui nous sommes",
+                footerProducts: "Nos Produits",
+                footerScience: "Notre Science",
+                footerConsultation: "Consultation Spécialiste de la Peau",
+
+                footerCustomerService: "Service Client",
+                footerTerms: "Conditions Générales",
+                footerPrivacy: "Politique de Confidentialité",
+                footerShipping: "Expédition et Livraison",
+                footerReturns: "Retours et Échanges",
+
+                footerInformation: "Information",
+                footerHelp: "Centre d'Aide",
+                footerFaq: "F.A.Q",
+                footerContact: "Contactez-Nous",
+                footerTrack: "Suivre Votre Commande",
+
+                footerFollow: "Suivez-Nous",
+                footerTagline: "Nature Pure Résultats Prouvés",
+                footerRights: "Tous Droits Réservés",
+
+                badgeTested: "Testé Dermatologiquement",
+                badgeNatural: "100% Ingrédients Naturels"
+            },
+            tr: {
+                // Top Bar
+                brandBook: "Marka Kitabı",
+                download: "İndir",
+                joinNetwork: "Ağımıza katılın",
+                loginRegister: "Giriş | Kayıt",
+
+                // Navigation
+                navHome: "Ana Sayfa",
+                navAbout: "Hakkımızda",
+                navProducts: "Ürünler",
+                navContact: "İletişim",
+
+                // Search
+                searchPlaceholder: "Ürünleri ara",
+                searchBtn: "Ara",
+
+                // Hero
+                heroTitle1: "YATIŠTIRICI MASKE",
+                heroSubtitle1: "Hassas Cilt İçin",
+                heroText1: "Yeşil Alg, Calendula, Papatya ve Melisa ile hassas cildi sakinleştiren ve zararlı ışınlardan koruyan doğal yatıştırıcı maske.",
+                heroTitle2: "ALG PEELİNGİ",
+                heroSubtitle2: "Profesyonel Tedavi",
+                heroText2: "Kanıtlanmış bilimsel sonuçlarla profesyonel cilt yenilenmesi için gelişmiş yeşil alg peeling tozu.",
+                heroTitle3: "GÜNEŞ KORUMASI",
+                heroSubtitle3: "Doğal Savunma",
+                heroText3: "Cildinizi zararlı UV ışınlarından korumak için doğal deniz bileşenleriyle gelişmiş güneş koruması.",
+                discoverProducts: "Ürünleri Keşfedin",
+
+                // About
+                aboutTitle: "DERMOCÉAN Hakkında",
+                aboutText1: "DERMOCÉAN, özellikle yeşil algler olmak üzere deniz bileşenlerinin gücünden yararlanarak devrim niteliğinde cilt bakım çözümleri yaratmaya adanmış premium bir cilt bakım markasıdır.",
+                aboutText2: "Yıllarca süren araştırma ve bilimsel uzmanlıkla, saf doğal bileşenleri kanıtlanmış klinik sonuçlarla birleştiren benzersiz formüller geliştirdik.",
+                learnMore: "Daha Fazla Bilgi",
+
+                ourStoryTitle: "Hikayemiz",
+                ourStoryText1: "DERMOCÉAN, doğal güzellik ve deniz bilimine duyulan tutkudan doğdu. Kurucularımız yeşil alglerin inanılmaz rejeneratif özelliklerini keşfettiler ve bu doğal gücü kullanan bir cilt bakım hattı yaratmaya kendilerini adadılar.",
+                ourStoryText2: "Her ürün, geleneksel bilgiyi modern dermatoloji bilimiyle birleştirerek titizlikle geliştirilir. Görünür sonuçlar veren saf, doğal bileşenlere inanıyoruz.",
+                ourStoryText3: "Bugün DERMOCÉAN, kalite, saflık ve kanıtlanmış etkinlik taahhüdümüz için lüks spalardan dermatoloji kliniklerine kadar dünya çapında cilt bakım profesyonelleri tarafından güvenilir bir markadır.",
+
+                whyChooseTitle: "Neden DERMOCÉAN'ı Seçmelisiniz",
+                whyChooseSubtitle: "Saf Doğa, Kanıtlanmış Sonuçlar",
+
+                feature1Title: "Deniz Bilimi",
+                feature1Text: "Bozulmamış deniz ortamlarından saf yeşil alg özleri kullanan gelişmiş formüller.",
+                feature2Title: "Klinik Olarak Test Edilmiş",
+                feature2Text: "Tüm ürünler dermatolojik olarak test edilmiş ve güvenlik ve etkinlik için klinik olarak kanıtlanmıştır.",
+                feature3Title: "%100 Doğal",
+                feature3Text: "Parabenler, sülfatlar ve zararlı kimyasallardan arındırılmış saf doğal bileşenler.",
+                feature4Title: "Görünür Sonuçlar",
+                feature4Text: "Bilimsel olarak desteklenen formüllerimizle dönüştürücü sonuçlar yaşayın.",
+                feature5Title: "Profesyonel Kalite",
+                feature5Text: "Dünya çapında cilt bakım profesyonelleri ve dermatologlar tarafından güvenilir.",
+                feature6Title: "Sürdürülebilir",
+                feature6Text: "Çevresel sürdürülebilirlik ve etik kaynak teminini taahhüt ediyoruz.",
+
+                // Products
+                productsTitle: "Ürünlerimiz",
+                productsSubtitle: "Saf Doğa Kanıtlanmış Sonuçlar",
+
+                professional: "Profesyonel",
+                bestseller: "En Çok Satan",
+                essential: "Temel",
+
+                product1Name: "Yeşil Alg Peeling Tozu",
+                product1Category: "Profesyonel Tedavi",
+                product1Desc: "Profesyonel cilt yenilenmesi için gelişmiş yeşil alg peeling tozu. Görünür gençleşme için hücresel yenilenmeyi ve kolajen üretimini uyarır.",
+                product1Ingredients: "🌱 Yeşil Alg, Calendula, Papatya, Doğal Spikül",
+
+                product2Name: "Toz Destek Sıvısı",
+                product2Category: "Tedavi Güçlendirici",
+                product2Desc: "Peeling tozu tedavisini aktive eden ve geliştiren temel destek sıvısı. Derin penetrasyon ve maksimum etkinlik için optimal koşullar yaratır.",
+                product2Ingredients: "💧 Arıtılmış Deniz Suyu, Mineral Kompleks, pH Dengeleyiciler",
+
+                product3Name: "Nemlendirici Yatıştırıcı Maske",
+                product3Category: "Hassas Cilt Bakımı",
+                product3Desc: "Tahrişi yatıştıran ve hassas cildi sakinleştiren yoğun nemlendirici maske. Derin beslenme ve koruma için doğal bitkisel özlerle zenginleştirilmiştir.",
+                product3Ingredients: "🌿 Yeşil Alg, Calendula, Papatya, Melisa, Aloe Vera",
+
+                product4Name: "Deniz Güneş Koruması",
+                product4Category: "Günlük Koruma",
+                product4Desc: "Doğal deniz özlerini etkili UV filtrelerle birleştiren gelişmiş geniş spektrumlu güneş koruması. Cildinizi beslerken koruyan hafif formül.",
+                product4Ingredients: "☀️ Deniz Alg Kompleksi, UV Filtreleri, E Vitamini, Antioksidanlar",
+
+                treatmentTitle: "Profesyonel Tedavi Protokolü",
+                treatmentSubtitle: "DERMOCÉAN Alg Peeling Deneyimi",
+
+                step1Title: "Temizleme",
+                step1Text: "Cildi optimal tedavi emilimine hazırlamak için derin temizleme.",
+                step2Title: "Uygulama",
+                step2Text: "Destek sıvısı ile alg peeling tozunun profesyonel uygulaması.",
+                step3Title: "Aktivasyon",
+                step3Text: "Doğal spikül hücresel yenilenme ve kolajen üretimini aktive eder.",
+                step4Title: "Yatıştırma",
+                step4Text: "Tedavi edilen cildi sakinleştirmek ve nemlen dirmek için yatıştırıcı maske uygulaması.",
+
+                // Contact
+                contactTitle: "İletişime Geçin",
+                contactSubtitle: "Sizden haber almayı çok isteriz",
+                contactInfoTitle: "İletişim Bilgileri",
+                contactInfoText: "Ürünlerimiz hakkında sorularınız mı var veya DERMOCÉAN ortağı olmak mı istiyorsunuz? Bize ulaşın ve ekibimiz 24 saat içinde yanıt verecektir.",
+
+                emailLabel: "E-posta",
+                phoneLabel: "Telefon",
+                addressLabel: "Adres",
+                addressText: "123 Deniz Bulvarı, Sahil Şehri",
+                hoursLabel: "Çalışma Saatleri",
+                hoursText: "Pzt - Cum: 09:00 - 18:00",
+
+                nameLabel: "Adınız",
+                namePlaceholder: "Adınızı girin",
+                emailFormLabel: "E-posta Adresi",
+                emailPlaceholder: "E-postanızı girin",
+                subjectLabel: "Konu",
+                subjectPlaceholder: "Bu ne hakkında?",
+                messageLabel: "Mesaj",
+                messagePlaceholder: "Mesajınız...",
+                sendMessage: "Mesaj Gönder",
+
+                // Footer
+                footerCtaTitle: "YARDIMA MI İHTİYACINIZ VAR?",
+                footerCtaSubtitle: "Temsilcilerimiz size rehberlik edebilir",
+                contactUs: "İletişime Geçin",
+
+                footerAbout: "Biz kimiz",
+                footerProducts: "Ürünlerimiz",
+                footerScience: "Bilimimiz",
+                footerConsultation: "Cilt Uzmanı Danışmanlığı",
+
+                footerCustomerService: "Müşteri Hizmetleri",
+                footerTerms: "Şartlar ve Koşullar",
+                footerPrivacy: "Gizlilik Politikası",
+                footerShipping: "Kargo ve Teslimat",
+                footerReturns: "İade ve Değişim",
+
+                footerInformation: "Bilgi",
+                footerHelp: "Yardım Merkezi",
+                footerFaq: "S.S.S",
+                footerContact: "İletişime Geçin",
+                footerTrack: "Siparişinizi Takip Edin",
+
+                footerFollow: "Bizi Takip Edin",
+                footerTagline: "Saf Doğa Kanıtlanmış Sonuçlar",
+                footerRights: "Tüm Hakları Saklıdır",
+
+                badgeTested: "Dermatolojik Olarak Test Edilmiş",
+                badgeNatural: "%100 Doğal Bileşenler"
+            }
+        };
+
+        let currentLang = 'ar';
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        // Language Switcher
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentLang = btn.dataset.lang;
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                changeLanguage(currentLang);
+            });
+        });
+
+        function changeLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            placeholderElements.forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+
+            // Change direction
+            if (lang === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ar');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', lang);
+            }
+        }
+
+        // Slider functionality
+        function showSlide(n) {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+
+            if (n >= slides.length) currentSlide = 0;
+            if (n < 0) currentSlide = slides.length - 1;
+            else currentSlide = n;
+
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        // Auto slider
+        setInterval(() => {
+            currentSlide++;
+            showSlide(currentSlide);
+        }, 5000);
+
+        // Page navigation
+        function showPage(pageName) {
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(pageName + '-page').classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = this.getAttribute('href');
+                if (target && target !== '#') {
+                    const element = document.querySelector(target);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Contact form
+        document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert(currentLang === 'ar' ? 'شكراً لتواصلك معنا! سنرد عليك قريباً.' :
+                  currentLang === 'fr' ? 'Merci de nous avoir contactés! Nous vous répondrons bientôt.' :
+                  currentLang === 'tr' ? 'Bizimle iletişime geçtiğiniz için teşekkürler! Yakında size geri döneceğiz.' :
+                  'Thank you for contacting us! We will get back to you soon.');
+            e.target.reset();
+        });
+
+        // Scroll to top
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Scroll animations
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.product-card, .feature-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s';
+            observer.observe(el);
+        });
+
+        // Initialize with Arabic
+        changeLanguage('ar');
+    </script>
+</body>
+</html>
